@@ -38,7 +38,7 @@ function Home() {
               <p>
                 Visit our store and discover how to turn your home into an urban
                 jungle. All our plants are carefully selected and absolutely
-                Insta-friendly.
+                Insta-friendly!
               </p>
 
               <Link href="/store">
