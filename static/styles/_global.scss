@@ -1,0 +1,91 @@
+@import './variables';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  text-decoration: none;
+}
+
+html {
+  // this defines how much 1 rem is for our default resolution
+  font-size: 62.5%; // 1rem = 10px; 10/16 = 62.5%
+  @media only screen and (min-width: $bp1800) {
+    font-size: 75%;
+  }
+  //   @media only screen and (max-width: $bpLg3) {
+  //     font-size: 56.25%;
+  //   }
+  //   @media only screen and (max-width: $bpMd2) {
+  //     font-size: 50%;
+  //   }
+  //   @media only screen and (max-width: $bpSm1) {
+  //     font-size: 43.75%;
+  //   }
+}
+
+body {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $fontH;
+  font-weight: 600;
+  color: $black;
+  margin-bottom: 3.2rem;
+  line-height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+p,
+li {
+  font-size: 2rem;
+  font-family: $fontP;
+  color: $black;
+  @media only screen and (max-width: $bp550) {
+    font-size: 1.9rem;
+  }
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: $fontP;
+}
+
+.btn-main {
+  padding: 1.2rem 4.6rem;
+  background-color: $pink;
+  font-size: 2rem;
+  color: $white;
+  border-radius: 27px;
+  transition: all 0.2s cubic-bezier(0.47, 0, 0.745, 0.715);
+  &:hover {
+    background-color: $pinkHover;
+    transform: scale(1.05);
+  }
+  &:focus {
+    transform: scale(1.02);
+  }
+}
+
+.logo-main {
+  font-family: $fontH;
+  color: $black;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  span {
+    font-weight: 800;
+  }
+  a {
+    color: currentColor;
+  }
+}

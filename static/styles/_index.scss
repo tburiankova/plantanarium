@@ -1,0 +1,115 @@
+.index {
+  &__background {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    background-image: url('../images/monsteraBg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 0;
+    position: fixed;
+    @media only screen and (max-width: $bp850) {
+      height: auto;
+      position: relative;
+    }
+  }
+  &__container {
+    width: 90%;
+    height: 85%;
+    background-color: white;
+    z-index: 1;
+    margin: 7.5vh auto 0 auto;
+    box-shadow: $boxShadowLight;
+    position: relative;
+    padding-bottom: 8rem;
+
+    @media only screen and (max-width: $bp850) {
+      min-height: 100vh;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    &--inner {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+  &__topbar {
+    padding: 8rem 0;
+    display: flex;
+    justify-content: space-between;
+    @media only screen and (max-width: $bp1300) {
+      padding: 5.6rem 0;
+    }
+    @media only screen and (max-width: $bp850) {
+      padding: 3.2rem 0;
+    }
+    @media only screen and (max-width: $bp550) {
+      flex-direction: column;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      li {
+        &:not(:first-child) {
+          margin-left: 3.2rem;
+        }
+        a {
+          color: $black;
+          transition: all 0.1s cubic-bezier(0.47, 0, 0.745, 0.715);
+          &:hover {
+            color: $pink;
+          }
+        }
+      }
+    }
+  }
+  &__cta {
+    @media only screen and (max-width: $bp850) {
+      margin: 8rem 0;
+    }
+
+    @media only screen and (max-width: $bp550) {
+      margin: 5.6rem 0;
+    }
+    h1 {
+      font-size: 8.2rem;
+      @media only screen and (max-width: $bp850) {
+        font-size: 5.6rem;
+      }
+    }
+    h2 {
+      font-size: 3.2rem;
+      @media only screen and (max-width: $bp850) {
+        width: 90%;
+        line-height: 162%;
+        font-size: 2.8rem;
+      }
+      @media only screen and (max-width: $bp550) {
+        font-size: 2.6rem;
+      }
+    }
+    p {
+      color: $grey;
+      font-size: 2.2rem;
+      line-height: 162%;
+      width: 40%;
+      margin-bottom: 3.2rem;
+      @media only screen and (max-width: $bp850) {
+        width: 90%;
+      }
+    }
+  }
+  &__address {
+    position: absolute;
+    bottom: 3.2rem;
+    right: 5%;
+    p {
+      color: $grey;
+      @media only screen and (max-width: $bp550) {
+        padding-left: 2rem;
+        font-size: 1.7rem;
+      }
+    }
+  }
+}
