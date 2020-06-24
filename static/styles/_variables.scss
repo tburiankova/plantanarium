@@ -2,6 +2,7 @@
 
 // colors
 $white: #ffffff;
+$whiteTransparent: rgba(255, 255, 255, 0.8);
 $black: #1d1c28;
 $grey: #6f6f6f;
 $pink: #f73365;
@@ -9,6 +10,7 @@ $pinkHover: #c1244c;
 
 // shadows
 $boxShadowLight: 3px 20px 40px rgba(223, 213, 213, 0.2);
+$boxShadowLighter: 0px 4px 34px rgba(0, 0, 0, 0.05);
 
 // fonts
 $fontH: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,

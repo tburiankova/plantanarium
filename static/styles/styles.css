@@ -23,6 +23,9 @@ html {
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  background-image: url("../images/leavesBg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1,
@@ -36,6 +39,11 @@ h4 {
   line-height: 100%;
 }
 
+h1 {
+  font-size: 6.2rem;
+  font-weight: 600;
+}
+
 ul {
   list-style: none;
 }
@@ -44,6 +52,7 @@ p,
 li {
   font-size: 2rem;
   font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
   color: #1d1c28;
 }
 
@@ -94,6 +103,20 @@ button {
 
 .logo-main a {
   color: currentColor;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+          box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+  min-height: 100vh;
+}
+
+.container--inner {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .index__background {
@@ -262,5 +285,117 @@ button {
     padding-left: 2rem;
     font-size: 1.7rem;
   }
+}
+
+.topbar {
+  padding: 8rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media only screen and (max-width: 81.25em) {
+  .topbar {
+    padding: 5.6rem 0;
+  }
+}
+
+@media only screen and (max-width: 53.125em) {
+  .topbar {
+    padding: 3.2rem 0;
+  }
+}
+
+@media only screen and (max-width: 34.375em) {
+  .topbar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.topbar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.topbar ul li:not(:first-child) {
+  margin-left: 3.2rem;
+}
+
+.topbar ul li a {
+  color: #1d1c28;
+  -webkit-transition: all 0.1s cubic-bezier(0.47, 0, 0.745, 0.715);
+  transition: all 0.1s cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+
+.topbar ul li a:hover {
+  color: #f73365;
+}
+
+.store__container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+.store__card {
+  cursor: pointer;
+  width: 30rem;
+  min-height: 45rem;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(97, 192, 32, 0.12)), to(rgba(255, 255, 255, 0))), #ffffff;
+  background: linear-gradient(180deg, rgba(97, 192, 32, 0.12) 0%, rgba(255, 255, 255, 0) 100%), #ffffff;
+  -webkit-box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.05);
+  border-radius: 2rem;
+  margin-bottom: 3.2rem;
+  -webkit-transition: all 0.2s cubic-bezier(0.47, 0, 0.745, 0.715);
+  transition: all 0.2s cubic-bezier(0.47, 0, 0.745, 0.715);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.store__card:hover {
+  -webkit-transform: translate(3px, 2px) scale(0.98);
+          transform: translate(3px, 2px) scale(0.98);
+}
+
+.store__card__img-wrapper {
+  width: 25rem;
+  height: 33rem;
+  background-color: #6f6f6f;
+}
+
+.store__card h2 {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-size: 2.4rem;
+  margin: 1.6rem 0;
+}
+
+.store__card p {
+  color: #6f6f6f;
+  font-weight: 500;
 }
 /*# sourceMappingURL=styles.css.map */

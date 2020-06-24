@@ -1,0 +1,30 @@
+.topbar {
+  padding: 8rem 0;
+  display: flex;
+  justify-content: space-between;
+  @media only screen and (max-width: $bp1300) {
+    padding: 5.6rem 0;
+  }
+  @media only screen and (max-width: $bp850) {
+    padding: 3.2rem 0;
+  }
+  @media only screen and (max-width: $bp550) {
+    flex-direction: column;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    li {
+      &:not(:first-child) {
+        margin-left: 3.2rem;
+      }
+      a {
+        color: $black;
+        transition: all 0.1s cubic-bezier(0.47, 0, 0.745, 0.715);
+        &:hover {
+          color: $pink;
+        }
+      }
+    }
+  }
+}

@@ -28,6 +28,9 @@ html {
 
 body {
   box-sizing: border-box;
+  background-image: url('../images/leavesBg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1,
@@ -41,6 +44,11 @@ h4 {
   line-height: 100%;
 }
 
+h1 {
+  font-size: 6.2rem;
+  font-weight: 600;
+}
+
 ul {
   list-style: none;
 }
@@ -49,6 +57,7 @@ p,
 li {
   font-size: 2rem;
   font-family: $fontP;
+  font-weight: 500;
   color: $black;
   @media only screen and (max-width: $bp550) {
     font-size: 1.9rem;
@@ -87,5 +96,18 @@ button {
   }
   a {
     color: currentColor;
+  }
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  background-color: $whiteTransparent;
+  box-shadow: $boxShadowLight;
+  min-height: 100vh;
+
+  &--inner {
+    width: 90%;
+    margin: 0 auto;
   }
 }
