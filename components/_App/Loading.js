@@ -3,14 +3,14 @@ function Loading() {
     <>
       <div className="loading__wrapper">
         <svg
-          class="spinner"
+          className="spinner"
           width="30px"
           height="30px"
           viewBox="0 0 66 66"
           xmlns="http://www.w3.org/2000/svg"
         >
           <circle
-            class="path"
+            className="path"
             fill="none"
             stroke-width="3"
             stroke-linecap="round"

@@ -34,7 +34,10 @@ function CreateProduct() {
     data.append('file', product.image);
     data.append('upload_preset', 'plantanarium');
     data.append('cloud_name', 'drkyl8du9');
-    const response = await axios.post(process.env.CLOUDINARY_URL, data);
+    const response = await axios.post(
+      'https://api.cloudinary.com/v1_1/drkyl8du9/image/upload',
+      data
+    );
     const imageUrl = response.data.url;
     return imageUrl;
   }
