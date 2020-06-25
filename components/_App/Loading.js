@@ -12,8 +12,8 @@ function Loading() {
           <circle
             className="path"
             fill="none"
-            stroke-width="3"
-            stroke-linecap="round"
+            strokeWidth="3"
+            strokeLinecap="round"
             cx="33"
             cy="33"
             r="30"

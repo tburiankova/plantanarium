@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import baseUrl from '../utils/baseUrl';
+import catchErrors from '../utils/catchErrors';
 
 // components
 import Navbar from '../components/_App/Navbar';
@@ -18,6 +19,13 @@ function CreateProduct() {
   const [success, setSuccess] = useState(false);
   const [imagePrev, setImagePrev] = useState('');
   const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const isProduct = Object.values(product).every((el) => Boolean(el));
+    isProduct ? setDisabled(false) : setDisabled(true);
+  }, [product]);
 
   function handleChange(e) {
     const { name, value, files } = e.target;
@@ -43,18 +51,23 @@ function CreateProduct() {
   }
 
   async function handleSubmit(e) {
-    e.preventDefault();
-    setLoading(true);
-    const imageUrl = await handleImageUpload();
-    console.log({ imageUrl });
-    const url = `${baseUrl}/api/product`;
-    const { name, price, description } = product;
-    const payload = { name, price, description, imageUrl };
-    const response = await axios.post(url, payload);
-    console.log({ response });
-    setLoading(false);
-    setProduct(INITIAL_PRODUCT);
-    setSuccess(true);
+    try {
+      e.preventDefault();
+      setLoading(true);
+      const imageUrl = await handleImageUpload();
+      console.log({ imageUrl });
+      const url = `${baseUrl}/api/product`;
+      const { name, price, description } = product;
+      const payload = { name, price, description, imageUrl };
+      const response = await axios.post(url, payload);
+      console.log({ response });
+      setProduct(INITIAL_PRODUCT);
+      setSuccess(true);
+    } catch (error) {
+      catchErrors(error, setError);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -67,6 +80,11 @@ function CreateProduct() {
             {success && (
               <div className="form-message-success">
                 <p>New product has been posted!</p>
+              </div>
+            )}
+            {Boolean(error) && (
+              <div className="form-message-error">
+                <p>{error}</p>
               </div>
             )}
             <label htmlFor="name">Name</label>
@@ -113,7 +131,11 @@ function CreateProduct() {
               onChange={handleChange}
             />
             {loading && <Loading />}
-            <button type="submit" className="btn-submit" disabled={loading}>
+            <button
+              type="submit"
+              className="btn-submit"
+              disabled={disabled || loading}
+            >
               Create Product
             </button>
           </form>

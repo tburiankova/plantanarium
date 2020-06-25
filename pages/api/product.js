@@ -34,17 +34,22 @@ async function handleDeleteRequest(req, res) {
 
 async function handlePostRequest(req, res) {
   const { name, price, description, imageUrl } = req.body;
-  if (!name || !price || !description || !imageUrl) {
-    return res.status(422).send('Product is missing some fields!');
+  try {
+    if (!name || !price || !description || !imageUrl) {
+      return res.status(422).send('Product is missing some fields!');
+    }
+
+    const product = await new Product({
+      name,
+      price,
+      description,
+      mediaUrl: imageUrl,
+    }).save();
+
+    // if we need the response sent back
+    res.status(201).json(product);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server error in creating product.');
   }
-
-  const product = await new Product({
-    name,
-    price,
-    description,
-    mediaUrl: imageUrl,
-  }).save();
-
-  // if we need the response sent back
-  res.status(201).json(product);
 }

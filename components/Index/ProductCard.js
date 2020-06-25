@@ -10,7 +10,7 @@ function ProductCard({ product }) {
               <img src={`${product.mediaUrl}`} alt={product.name} />
             </div>
             <h2>{product.name}</h2>
-            <p>£ {product.price}</p>
+            <p>£ {product.price.toFixed(2)}</p>
           </div>
         </a>
       </Link>

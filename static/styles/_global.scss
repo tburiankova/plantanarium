@@ -69,6 +69,9 @@ button {
   cursor: pointer;
   border: none;
   font-family: $fontP;
+  &:disabled {
+    opacity: 0.4;
+  }
 }
 
 .btn-main {
@@ -176,7 +179,7 @@ button {
     padding: 0.8rem 1.2rem;
     border-radius: 27px;
     border: none;
-    box-shadow: $boxShadowLight;
+    box-shadow: $boxShadowDark;
     font-family: $fontP;
     &:focus {
       outline: none;
@@ -184,7 +187,7 @@ button {
     }
     &::placeholder {
       font-size: 1.4rem;
-      color: $lightGrey;
+      color: $mediumGrey;
       font-family: $fontP;
     }
   }
@@ -203,10 +206,10 @@ button {
     cursor: pointer;
     width: 15rem;
     padding: 0.8rem;
-    box-shadow: $boxShadowLight;
+    box-shadow: $boxShadowDark;
     background-color: $white;
     border-radius: 27px;
-    color: $lightGrey;
+    color: $mediumGrey;
     font-size: 1.4rem;
     margin-top: 0;
   }
@@ -228,14 +231,22 @@ button {
       width: 100%;
     }
   }
-  .form-message-success {
+  .form-message-success,
+  .form-message-error {
     padding: 2rem 3rem;
     background-color: $white;
-    box-shadow: $boxShadowLight;
+    box-shadow: $boxShadowDark;
     text-align: center;
     border-radius: 27px;
+  }
+  .form-message-success {
     p {
       color: $green;
+    }
+  }
+  .form-message-error {
+    p {
+      color: $red;
     }
   }
 }

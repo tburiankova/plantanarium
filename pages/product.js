@@ -28,7 +28,7 @@ function Product({ product }) {
             <div className="product__wrapper--left">
               <div className="product__heading">
                 <h1>{product.name}</h1>
-                <span>£ {product.price}</span>
+                <span>£ {product.price.toFixed(2)}</span>
               </div>
               <div className="product__img-wrapper">
                 <img src={`${product.mediaUrl}`} alt={product.name} />
