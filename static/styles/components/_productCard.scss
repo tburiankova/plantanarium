@@ -3,6 +3,12 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
+    @media only screen and (max-width: $bp1150) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media only screen and (max-width: $bp750) {
+      grid-template-columns: 1fr;
+    }
   }
   &__card {
     cursor: pointer;
@@ -28,10 +34,18 @@
     justify-content: center;
     align-items: center;
 
+    @media only screen and (max-width: $bp400) {
+      width: 25rem;
+    }
+
     &__img-wrapper {
       width: 25rem;
       height: 33rem;
       background-color: $grey;
+
+      @media only screen and (max-width: $bp400) {
+        width: 20rem;
+      }
     }
 
     h2 {

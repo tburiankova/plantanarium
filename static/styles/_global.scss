@@ -84,6 +84,10 @@ button {
   &:focus {
     transform: scale(1.02);
   }
+
+  @media only screen and (max-width: $bp400) {
+    padding: 1.1rem 3.5rem;
+  }
 }
 
 .logo-main {
