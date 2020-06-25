@@ -126,7 +126,8 @@ button {
 }
 
 .btn-delete,
-.btn-cancel {
+.btn-cancel,
+.btn-submit {
   padding: 0.9rem 2.8rem;
   color: #ffffff;
   border-radius: 27px;
@@ -140,6 +141,10 @@ button {
 
 .btn-cancel {
   background-color: #1dc8c4;
+}
+
+.btn-submit {
+  background-color: #aacc00;
 }
 
 .logo-main {
@@ -170,6 +175,128 @@ button {
 .container--inner {
   width: 90%;
   margin: 0 auto;
+}
+
+.active-link {
+  color: #f73365 !important;
+}
+
+.form-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+          box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+  border-radius: 27px;
+}
+
+.form-main input,
+.form-main textarea {
+  padding: 0.8rem 1.2rem;
+  border-radius: 27px;
+  border: none;
+  -webkit-box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+          box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.form-main input:focus,
+.form-main textarea:focus {
+  outline: none;
+  border: 2px solid #e5e5e5;
+}
+
+.form-main input::-webkit-input-placeholder,
+.form-main textarea::-webkit-input-placeholder {
+  font-size: 1.4rem;
+  color: #e5e5e5;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.form-main input:-ms-input-placeholder,
+.form-main textarea:-ms-input-placeholder {
+  font-size: 1.4rem;
+  color: #e5e5e5;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.form-main input::-ms-input-placeholder,
+.form-main textarea::-ms-input-placeholder {
+  font-size: 1.4rem;
+  color: #e5e5e5;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.form-main input::placeholder,
+.form-main textarea::placeholder {
+  font-size: 1.4rem;
+  color: #e5e5e5;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.form-main textarea {
+  resize: none;
+}
+
+.form-main input#price {
+  width: 15rem;
+}
+
+.form-main input[type='file'] {
+  display: none;
+}
+
+.form-main .custom-file-input {
+  cursor: pointer;
+  width: 15rem;
+  padding: 0.8rem;
+  -webkit-box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+          box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+  background-color: #ffffff;
+  border-radius: 27px;
+  color: #e5e5e5;
+  font-size: 1.4rem;
+  margin-top: 0;
+}
+
+.form-main label {
+  font-size: 1.6rem;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin-top: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.form-main button {
+  width: 18rem;
+}
+
+.form-main .img-prev {
+  width: 10rem;
+}
+
+.form-main .img-prev img {
+  width: 100%;
+}
+
+.form-main .form-message-success {
+  padding: 2rem 3rem;
+  background-color: #ffffff;
+  -webkit-box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+          box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+  text-align: center;
+  border-radius: 27px;
+}
+
+.form-main .form-message-success p {
+  color: #aacc00;
 }
 
 .index__background {
@@ -742,5 +869,113 @@ button {
 .store__card p {
   color: #6f6f6f;
   font-weight: 500;
+}
+
+.loading__wrapper {
+  margin: 3.2rem auto;
+}
+
+.spinner {
+  -webkit-animation: rotator 1.4s linear infinite;
+          animation: rotator 1.4s linear infinite;
+}
+
+@-webkit-keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+}
+
+@keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+}
+
+.path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+          animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@-webkit-keyframes colors {
+  0% {
+    stroke: #f73365;
+  }
+  25% {
+    stroke: #1dc8c4;
+  }
+  50% {
+    stroke: #aacc00;
+  }
+  75% {
+    stroke: #ff4800;
+  }
+  100% {
+    stroke: #f73365;
+  }
+}
+
+@keyframes colors {
+  0% {
+    stroke: #f73365;
+  }
+  25% {
+    stroke: #1dc8c4;
+  }
+  50% {
+    stroke: #aacc00;
+  }
+  75% {
+    stroke: #ff4800;
+  }
+  100% {
+    stroke: #f73365;
+  }
+}
+
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+            transform: rotate(450deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+            transform: rotate(450deg);
+  }
 }
 /*# sourceMappingURL=styles.css.map */

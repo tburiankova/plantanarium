@@ -1,7 +1,9 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 function Navbar() {
-  const user = false;
+  const router = useRouter();
+  const user = true;
 
   return (
     <>
@@ -16,21 +18,53 @@ function Navbar() {
 
         <ul>
           <li>
+            <Link href="/store">
+              <a className={router.pathname === '/store' ? 'active-link' : ''}>
+                Store
+              </a>
+            </Link>
+          </li>
+          <li>
             <Link href="/cart">
-              <a>Cart</a>
+              <a className={router.pathname === '/cart' ? 'active-link' : ''}>
+                Cart
+              </a>
             </Link>
           </li>
 
           {user ? (
             <>
               <li>
+                <Link href="/create">
+                  <a
+                    className={
+                      router.pathname === '/create' ? 'active-link' : ''
+                    }
+                  >
+                    Create
+                  </a>
+                </Link>
+              </li>
+              <li>
                 <Link href="/account">
-                  <a>Account</a>
+                  <a
+                    className={
+                      router.pathname === '/account' ? 'active-link' : ''
+                    }
+                  >
+                    Account
+                  </a>
                 </Link>
               </li>
               <li>
                 <Link href="/logout">
-                  <a>Log Out</a>
+                  <a
+                    className={
+                      router.pathname === '/logout' ? 'active-link' : ''
+                    }
+                  >
+                    Log Out
+                  </a>
                 </Link>
               </li>
             </>
@@ -38,7 +72,13 @@ function Navbar() {
             <>
               <li>
                 <Link href="/login">
-                  <a>Log In</a>
+                  <a
+                    className={
+                      router.pathname === '/login' ? 'active-link' : ''
+                    }
+                  >
+                    Log In
+                  </a>
                 </Link>
               </li>
               <li>
