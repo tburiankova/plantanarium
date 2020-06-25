@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import axios from 'axios';
 import baseUrl from '../utils/baseUrl';
 
@@ -7,13 +6,6 @@ import Navbar from '../components/_App/Navbar';
 import ProductCard from '../components/Index/ProductCard';
 
 function Store({ products }) {
-  console.log(products);
-  // useEffect(() => {
-  //   getProducts();
-  // }, []);
-
-  // async function getProducts() {}
-
   return (
     <>
       <div className="container">
@@ -21,11 +13,9 @@ function Store({ products }) {
           <Navbar />
           <h1>Our Greens</h1>
           <div className="store__container">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            {products.map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
           </div>
         </div>
       </div>

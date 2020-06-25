@@ -42,9 +42,15 @@
       width: 25rem;
       height: 33rem;
       background-color: $grey;
+      overflow: hidden;
 
       @media only screen and (max-width: $bp400) {
         width: 20rem;
+      }
+
+      img {
+        width: 100%;
+        object-fit: cover;
       }
     }
 

@@ -447,12 +447,19 @@ button {
   width: 25rem;
   height: 33rem;
   background-color: #6f6f6f;
+  overflow: hidden;
 }
 
 @media only screen and (max-width: 34.375em) {
   .store__card__img-wrapper {
     width: 20rem;
   }
+}
+
+.store__card__img-wrapper img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .store__card h2 {

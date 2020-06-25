@@ -1,11 +1,19 @@
-function ProductCard() {
+import Link from 'next/link';
+
+function ProductCard({ product }) {
   return (
     <>
-      <div className="store__card">
-        <div className="store__card__img-wrapper"></div>
-        <h2>Product Name</h2>
-        <p>£ 0.00</p>
-      </div>
+      <Link href={`/product?_id=${product._id}`}>
+        <a>
+          <div className="store__card">
+            <div className="store__card__img-wrapper">
+              <img src={`${product.mediaUrl}`} alt={product.name} />
+            </div>
+            <h2>{product.name}</h2>
+            <p>£ {product.price}</p>
+          </div>
+        </a>
+      </Link>
     </>
   );
 }
