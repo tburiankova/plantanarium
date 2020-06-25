@@ -54,7 +54,8 @@ ul {
 }
 
 p,
-li {
+li,
+span {
   font-size: 2rem;
   font-family: $fontP;
   font-weight: 500;
@@ -71,7 +72,7 @@ button {
 }
 
 .btn-main {
-  padding: 1.2rem 4.6rem;
+  padding: 1.2rem 4rem;
   background-color: $pink;
   font-size: 2rem;
   color: $white;
@@ -88,6 +89,41 @@ button {
   @media only screen and (max-width: $bp400) {
     padding: 1.1rem 3.5rem;
   }
+}
+
+.btn-secondary {
+  padding: 0.9rem 2.8rem;
+  background-color: transparent;
+  font-size: 2rem;
+  color: $pink;
+  border: 2px solid $pink;
+  border-radius: 27px;
+  transition: $transition;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:focus {
+    transform: scale(1.02);
+  }
+  @media only screen and (max-width: $bp400) {
+    padding: 0.7rem 2.8rem;
+  }
+}
+
+.btn-delete,
+.btn-cancel {
+  padding: 0.9rem 2.8rem;
+  color: $white;
+  border-radius: 27px;
+  font-size: 1.6rem;
+  margin: 0.8rem;
+}
+.btn-delete {
+  background-color: $red;
+}
+.btn-cancel {
+  background-color: $blue;
 }
 
 .logo-main {
@@ -109,6 +145,7 @@ button {
   background-color: $whiteTransparent;
   box-shadow: $boxShadowLight;
   min-height: 100vh;
+  padding-bottom: 8rem;
 
   &--inner {
     width: 90%;
