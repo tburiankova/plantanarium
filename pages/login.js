@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import catchErrors from '../utils/catchErrors';
+import axios from 'axios';
+import baseUrl from '../utils/baseUrl';
+import { handleLogin } from '../utils/auth';
 
 // components
 import Navbar from '../components/_App/Navbar';
@@ -32,8 +35,10 @@ function Login() {
     try {
       setLoading(true);
       setError('');
-      console.log(user);
-      // make a request to signup user
+      const url = `${baseUrl}/api/login`;
+      const payload = { ...user };
+      const response = await axios.post(url, payload);
+      handleLogin(response.data);
     } catch (error) {
       catchErrors(error, setError);
     } finally {
