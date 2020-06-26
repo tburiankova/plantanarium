@@ -14,7 +14,7 @@ const INITIAL_USER = {
   password: '',
 };
 
-function Signup({ user }) {
+function Signup() {
   const [user, setUser] = useState(INITIAL_USER);
   const [disabled, setDisabled] = useState(true);
   const [loading, setLoading] = useState(false);
