@@ -1,0 +1,24 @@
+.cart {
+  &__item {
+    display: flex;
+    margin-bottom: 3.2rem;
+    &__img {
+      width: 10rem;
+      height: 13rem;
+      background-color: $grey;
+      margin-right: 0.8rem;
+    }
+    &__info {
+      h3 {
+        font-size: 2.4rem;
+        margin-bottom: 0.8rem;
+      }
+      p {
+        font-size: 1.8rem;
+      }
+    }
+    &__remove {
+      margin-left: auto;
+    }
+  }
+}

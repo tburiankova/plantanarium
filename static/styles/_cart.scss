@@ -1,0 +1,28 @@
+.cart {
+  &__heading {
+    margin-bottom: 3.2rem;
+    h2 {
+      font-size: 2.4rem;
+      margin-top: -2rem;
+    }
+  }
+  &__container {
+    min-width: 90%;
+    min-height: 20rem;
+    margin: 0 auto;
+    background-color: $whiteTransparent;
+    border-radius: 27px;
+    box-shadow: $boxShadowDark;
+    &--inner {
+      width: 95%;
+      height: 95%;
+      margin: 0 auto;
+      padding: 3.2rem 0;
+    }
+  }
+  &__summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}

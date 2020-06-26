@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 function Navbar() {
   const router = useRouter();
-  const user = true;
+  const user = false;
 
   return (
     <>
@@ -83,7 +83,9 @@ function Navbar() {
               </li>
               <li>
                 <Link href="/signup">
-                  <button className="btn-main">Sign Up</button>
+                  <a>
+                    <button className="btn-main">Sign Up</button>
+                  </a>
                 </Link>
               </li>
             </>

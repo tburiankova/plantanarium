@@ -3,9 +3,11 @@
 
 // pages
 @import './index';
+@import './cart';
 @import './product';
 
 // components
+@import './components/cartItem';
 @import './components/navbar';
 @import './components/productCard';
 @import './components/loading';

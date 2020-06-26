@@ -40,13 +40,17 @@ h4 {
   font-family: $fontH;
   font-weight: 600;
   color: $black;
-  margin-bottom: 3.2rem;
   line-height: 100%;
 }
 
 h1 {
   font-size: 6.2rem;
   font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+
+h2 {
+  margin-bottom: 1.6rem;
 }
 
 ul {
@@ -71,6 +75,7 @@ button {
   font-family: $fontP;
   &:disabled {
     opacity: 0.4;
+    cursor: unset;
   }
 }
 
@@ -174,6 +179,16 @@ button {
   box-shadow: $boxShadowLight;
   border-radius: 27px;
 
+  @media only screen and (max-width: $bp1000) {
+    width: 70%;
+  }
+  @media only screen and (max-width: $bp750) {
+    width: 90%;
+  }
+  @media only screen and (max-width: $bp550) {
+    width: 100%;
+  }
+
   input,
   textarea {
     padding: 0.8rem 1.2rem;
@@ -222,7 +237,8 @@ button {
   }
 
   button {
-    width: 18rem;
+    margin-top: 1.6rem;
+    width: 12rem;
   }
 
   .img-prev {
@@ -247,6 +263,18 @@ button {
   .form-message-error {
     p {
       color: $red;
+    }
+  }
+  .form-message-bottom {
+    padding: 2.4rem 0;
+    p {
+      font-size: 1.6rem;
+    }
+    a {
+      color: $blue;
+      @media only screen and (max-width: $bp400) {
+        display: block;
+      }
     }
   }
 }
