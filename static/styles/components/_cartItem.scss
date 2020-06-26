@@ -2,11 +2,21 @@
   &__item {
     display: flex;
     margin-bottom: 3.2rem;
+    padding-bottom: 3.2rem;
+    border-bottom: 1px solid $lightGrey;
+
     &__img {
       width: 10rem;
       height: 13rem;
       background-color: $grey;
-      margin-right: 0.8rem;
+      margin-right: 1.6rem;
+      overflow: hidden;
+
+      img {
+        height: 100%;
+        min-width: 100%;
+        object-fit: cover;
+      }
     }
     &__info {
       h3 {

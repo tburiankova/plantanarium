@@ -802,13 +802,23 @@ button:disabled {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 3.2rem;
+  padding-bottom: 3.2rem;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .cart__item__img {
   width: 10rem;
   height: 13rem;
   background-color: #6f6f6f;
-  margin-right: 0.8rem;
+  margin-right: 1.6rem;
+  overflow: hidden;
+}
+
+.cart__item__img img {
+  height: 100%;
+  min-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .cart__item__info h3 {
