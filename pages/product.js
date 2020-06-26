@@ -1,10 +1,18 @@
-import { useState } from 'react';
-import baseUrl from '../utils/baseUrl';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import baseUrl from '../utils/baseUrl';
 import { useRouter } from 'next/router';
+import cookie from 'js-cookie';
+import catchErrors from '../utils/catchErrors';
+
+// components
+import Loading from '../components/_App/Loading';
 
 function Product({ product, user }) {
   const [modal, setModal] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const router = useRouter();
 
   const isRoot = user && user.role === 'root';
@@ -13,11 +21,41 @@ function Product({ product, user }) {
 
   const { _id } = product;
 
+  useEffect(() => {
+    let timeout;
+
+    if (success) {
+      timeout = setTimeout(() => {
+        setSuccess(false);
+      }, 3000);
+
+      return () => {
+        clearTimeout(timeout);
+      };
+    }
+  }, [success]);
+
   async function handleDelete({ user }) {
     const url = `${baseUrl}/api/product`;
     const payload = { params: { _id } };
     await axios.delete(url, payload);
     router.push('/store');
+  }
+
+  async function handleAddProductToCart() {
+    try {
+      setLoading(true);
+      const url = `${baseUrl}/api/cart`;
+      const payload = { quantity, _id };
+      const token = cookie.get('token');
+      const headers = { headers: { Authorization: token } };
+      await axios.put(url, payload, headers);
+      setSuccess(true);
+    } catch (error) {
+      catchErrors(error, window.alert);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -34,17 +72,32 @@ function Product({ product, user }) {
         </div>
         <div className="product__wrapper--right">
           <p>{product.description}</p>
+          {loading && <Loading />}
+          {success && (
+            <>
+              <p>
+                <strong>Item added to cart!</strong>
+              </p>
+            </>
+          )}
           <form>
             <input
               type="number"
               name="quantity"
               placeholder="Quantity"
-              value="1"
+              value={quantity}
+              onChange={(e) => setQuantity(Number(e.target.value))}
               id="quantity"
               min="1"
               max="10"
             />
-            <button className="btn-secondary">Add To Cart</button>
+            <button
+              className="btn-secondary"
+              onClick={handleAddProductToCart}
+              disabled={!user || loading}
+            >
+              {user ? <>Add to cart</> : <>Sign Up</>}
+            </button>
           </form>
         </div>
       </div>

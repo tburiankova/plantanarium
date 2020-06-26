@@ -1,8 +1,11 @@
+import { parseCookies } from 'nookies';
+import axios from 'axios';
+import baseUrl from '../utils/baseUrl';
+
 // components
 import CartItem from '../components/Cart/CartItem';
 
-function Cart() {
-  const user = false;
+function Cart({ products, user }) {
   return (
     <>
       <div className="cart__heading">
@@ -31,5 +34,19 @@ function Cart() {
     </>
   );
 }
+
+Cart.getInitialProps = async (ctx) => {
+  const { token } = parseCookies(ctx);
+
+  if (!token) {
+    return { products: [] };
+  }
+
+  const url = `${baseUrl}/api/cart`;
+  const payload = { headers: { Authorization: token } };
+  const response = await axios.get(url, payload);
+
+  return { products: response.data };
+};
 
 export default Cart;
