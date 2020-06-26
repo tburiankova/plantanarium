@@ -4,7 +4,6 @@ import baseUrl from '../utils/baseUrl';
 import catchErrors from '../utils/catchErrors';
 
 // components
-import Navbar from '../components/_App/Navbar';
 import Loading from '../components/_App/Loading';
 
 const INITIAL_PRODUCT = {
@@ -73,75 +72,70 @@ function CreateProduct() {
 
   return (
     <>
-      <div className="container">
-        <div className="container--inner">
-          <Navbar />
-          <h1>Create a product</h1>
-          <form className="form-main" onSubmit={handleSubmit}>
-            {success && (
-              <div className="form-message-success">
-                <p>New product has been posted!</p>
-              </div>
-            )}
-            {Boolean(error) && (
-              <div className="form-message-error">
-                <p>{error}</p>
-              </div>
-            )}
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Name"
-              value={product.name}
-              onChange={handleChange}
-            />
-            <label htmlFor="price">Price</label>
-            <input
-              type="number"
-              min="0.00"
-              step="0.01"
-              name="price"
-              id="price"
-              placeholder="Price"
-              value={product.price}
-              onChange={handleChange}
-            />
-            <label>Image</label>
-            <label htmlFor="image" className="custom-file-input">
-              Select image
-            </label>
-            <input
-              type="file"
-              name="image"
-              id="image"
-              accept="image/*"
-              onChange={handleChange}
-            />
-            <div className="img-prev">
-              <img src={imagePrev} />
-            </div>
-            <label htmlFor="description">Description</label>
-            <textarea
-              name="description"
-              id="description"
-              placeholder="Description"
-              rows="10"
-              value={product.description}
-              onChange={handleChange}
-            />
-            {loading && <Loading />}
-            <button
-              type="submit"
-              className="btn-submit"
-              disabled={disabled || loading}
-            >
-              Create Product
-            </button>
-          </form>
+      <h1>Create a product</h1>
+      <form className="form-main" onSubmit={handleSubmit}>
+        {success && (
+          <div className="form-message-success">
+            <p>New product has been posted!</p>
+          </div>
+        )}
+        {Boolean(error) && (
+          <div className="form-message-error">
+            <p>{error}</p>
+          </div>
+        )}
+        <label htmlFor="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Name"
+          value={product.name}
+          onChange={handleChange}
+        />
+        <label htmlFor="price">Price</label>
+        <input
+          type="number"
+          min="0.00"
+          step="0.01"
+          name="price"
+          id="price"
+          placeholder="Price"
+          value={product.price}
+          onChange={handleChange}
+        />
+        <label>Image</label>
+        <label htmlFor="image" className="custom-file-input">
+          Select image
+        </label>
+        <input
+          type="file"
+          name="image"
+          id="image"
+          accept="image/*"
+          onChange={handleChange}
+        />
+        <div className="img-prev">
+          <img src={imagePrev} />
         </div>
-      </div>
+        <label htmlFor="description">Description</label>
+        <textarea
+          name="description"
+          id="description"
+          placeholder="Description"
+          rows="10"
+          value={product.description}
+          onChange={handleChange}
+        />
+        {loading && <Loading />}
+        <button
+          type="submit"
+          className="btn-submit"
+          disabled={disabled || loading}
+        >
+          Create Product
+        </button>
+      </form>
     </>
   );
 }

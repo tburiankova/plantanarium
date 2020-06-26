@@ -1,6 +1,7 @@
 import Head from 'next/head';
+import Navbar from './Navbar';
 
-function Layout({ children }) {
+function Layout({ children, user }) {
   return (
     <>
       <Head>
@@ -18,7 +19,12 @@ function Layout({ children }) {
         <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
         <title>Plantanarium</title>
       </Head>
-      {children}
+      <div className="container">
+        <div className="container--inner">
+          <Navbar user={user} />
+          {children}
+        </div>
+      </div>
     </>
   );
 }

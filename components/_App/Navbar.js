@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { handleLogout } from '../../utils/auth';
 
-function Navbar() {
+function Navbar({ user }) {
   const router = useRouter();
-  const user = false;
+  const isRoot = user && user.role === 'root';
+  const isAdmin = user && user.role === 'admin';
+  const isRootOrAdmin = isRoot || isAdmin;
 
   return (
     <>
@@ -32,19 +35,20 @@ function Navbar() {
             </Link>
           </li>
 
+          {isRootOrAdmin && (
+            <li>
+              <Link href="/create">
+                <a
+                  className={router.pathname === '/create' ? 'active-link' : ''}
+                >
+                  Create
+                </a>
+              </Link>
+            </li>
+          )}
+
           {user ? (
             <>
-              <li>
-                <Link href="/create">
-                  <a
-                    className={
-                      router.pathname === '/create' ? 'active-link' : ''
-                    }
-                  >
-                    Create
-                  </a>
-                </Link>
-              </li>
               <li>
                 <Link href="/account">
                   <a
@@ -56,16 +60,8 @@ function Navbar() {
                   </a>
                 </Link>
               </li>
-              <li>
-                <Link href="/logout">
-                  <a
-                    className={
-                      router.pathname === '/logout' ? 'active-link' : ''
-                    }
-                  >
-                    Log Out
-                  </a>
-                </Link>
+              <li onClick={handleLogout} style={{ cursor: 'pointer' }}>
+                Log Out
               </li>
             </>
           ) : (

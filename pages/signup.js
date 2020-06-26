@@ -6,7 +6,6 @@ import baseUrl from '../utils/baseUrl';
 import { handleLogin } from '../utils/auth';
 
 // components
-import Navbar from '../components/_App/Navbar';
 import Loading from '../components/_App/Loading';
 
 const INITIAL_USER = {
@@ -15,7 +14,7 @@ const INITIAL_USER = {
   password: '',
 };
 
-function Signup() {
+function Signup({ user }) {
   const [user, setUser] = useState(INITIAL_USER);
   const [disabled, setDisabled] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -49,62 +48,57 @@ function Signup() {
 
   return (
     <>
-      <div className="container">
-        <div className="container--inner">
-          <Navbar />
-          <h1>Create an account</h1>
-          <form className="form-main" onSubmit={handleSubmit}>
-            {Boolean(error) && (
-              <div className="form-message-error">
-                <p>{error}</p>
-              </div>
-            )}
-            <label htmlFor="name">Your name</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Name"
-              value={user.name}
-              onChange={handleChange}
-            />
-            <label htmlFor="email">Your email address</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email"
-              value={user.email}
-              onChange={handleChange}
-            />
-            <label htmlFor="password">Your chosen password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-              value={user.password}
-              onChange={handleChange}
-            />
-            {loading && <Loading />}
-            <button
-              type="submit"
-              className="btn-submit"
-              disabled={disabled || loading}
-            >
-              Sign Up
-            </button>
-            <div className="form-message-bottom">
-              <p>
-                Already have an account?
-                <Link href="/login">
-                  <a> Sign in!</a>
-                </Link>
-              </p>
-            </div>
-          </form>
+      <h1>Create an account</h1>
+      <form className="form-main" onSubmit={handleSubmit}>
+        {Boolean(error) && (
+          <div className="form-message-error">
+            <p>{error}</p>
+          </div>
+        )}
+        <label htmlFor="name">Your name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Name"
+          value={user.name}
+          onChange={handleChange}
+        />
+        <label htmlFor="email">Your email address</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          value={user.email}
+          onChange={handleChange}
+        />
+        <label htmlFor="password">Your chosen password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+          value={user.password}
+          onChange={handleChange}
+        />
+        {loading && <Loading />}
+        <button
+          type="submit"
+          className="btn-submit"
+          disabled={disabled || loading}
+        >
+          Sign Up
+        </button>
+        <div className="form-message-bottom">
+          <p>
+            Already have an account?
+            <Link href="/login">
+              <a> Sign in!</a>
+            </Link>
+          </p>
         </div>
-      </div>
+      </form>
     </>
   );
 }

@@ -3,16 +3,17 @@ import baseUrl from '../utils/baseUrl';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
-// components
-import Navbar from '../components/_App/Navbar';
-
-function Product({ product }) {
+function Product({ product, user }) {
   const [modal, setModal] = useState(false);
   const router = useRouter();
 
+  const isRoot = user && user.role === 'root';
+  const isAdmin = user && user.role === 'admin';
+  const isRootOrAdmin = isRoot || isAdmin;
+
   const { _id } = product;
 
-  async function handleDelete() {
+  async function handleDelete({ user }) {
     const url = `${baseUrl}/api/product`;
     const payload = { params: { _id } };
     await axios.delete(url, payload);
@@ -21,59 +22,54 @@ function Product({ product }) {
 
   return (
     <>
-      <div className="container">
-        <div className="container--inner">
-          <Navbar />
-          <div className="product__wrapper">
-            <div className="product__wrapper--left">
-              <div className="product__heading">
-                <h1>{product.name}</h1>
-                <span>£ {product.price.toFixed(2)}</span>
-              </div>
-              <div className="product__img-wrapper">
-                <img src={`${product.mediaUrl}`} alt={product.name} />
-              </div>
-            </div>
-            <div className="product__wrapper--right">
-              <p>{product.description}</p>
-              <form>
-                <input
-                  type="number"
-                  name="quantity"
-                  placeholder="Quantity"
-                  value="1"
-                  id="quantity"
-                  min="1"
-                  max="10"
-                />
-                <button className="btn-secondary">Add To Cart</button>
-              </form>
-            </div>
+      <div className="product__wrapper">
+        <div className="product__wrapper--left">
+          <div className="product__heading">
+            <h1>{product.name}</h1>
+            <span>£ {product.price.toFixed(2)}</span>
           </div>
-          <button className="btn-delete" onClick={() => setModal(true)}>
-            Delete Product
-          </button>
-
-          {modal && (
-            <div className="product__modal">
-              <div className="product__modal--inner">
-                <p>Are you sure you want to delete this product?</p>
-                <div className="product__modal__btns">
-                  <button
-                    className="btn-cancel"
-                    onClick={() => setModal(false)}
-                  >
-                    Cancel
-                  </button>
-                  <button className="btn-delete" onClick={handleDelete}>
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
+          <div className="product__img-wrapper">
+            <img src={`${product.mediaUrl}`} alt={product.name} />
+          </div>
+        </div>
+        <div className="product__wrapper--right">
+          <p>{product.description}</p>
+          <form>
+            <input
+              type="number"
+              name="quantity"
+              placeholder="Quantity"
+              value="1"
+              id="quantity"
+              min="1"
+              max="10"
+            />
+            <button className="btn-secondary">Add To Cart</button>
+          </form>
         </div>
       </div>
+
+      {isRootOrAdmin && (
+        <button className="btn-delete" onClick={() => setModal(true)}>
+          Delete Product
+        </button>
+      )}
+
+      {modal && (
+        <div className="product__modal">
+          <div className="product__modal--inner">
+            <p>Are you sure you want to delete this product?</p>
+            <div className="product__modal__btns">
+              <button className="btn-cancel" onClick={() => setModal(false)}>
+                Cancel
+              </button>
+              <button className="btn-delete" onClick={handleDelete}>
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
