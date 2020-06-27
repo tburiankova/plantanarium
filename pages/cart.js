@@ -107,7 +107,7 @@ function Cart({ products, user }) {
               shippingAddress={true}
               billingAddress={true}
               zipCode={true}
-              stripeKey="pk_test_51Gx9zvGWvCLLv0rSXQBfyNQ0q7FYJhws8nvas2JP9U1zlD8TwEsEziLPUFsM53vpIzNsdJFLKa2m9FTnXlKXRoUi00YhK6zboE"
+              stripeKey="pk_test_51GybqSH9ONxUVGpodX6v5V9UcWecyTohsVhgjVvBFeTQPahvsnc0qnAv3LzLJX7Wtwlw3TGwabJcCueMz3Q0Nhac00iGH26kEN"
               token={handleCheckout}
               triggerEvent="onClick"
             >

@@ -1,0 +1,10 @@
+.pagination {
+  &__wrapper {
+    width: 20rem;
+    margin: 0 auto;
+    padding: 2.4rem 3.2rem;
+    background-color: $whiteTransparent;
+    border-radius: $radius;
+    box-shadow: $boxShadowLight;
+  }
+}

@@ -25,7 +25,7 @@ export default async (req, res) => {
     const { cartTotal, stripeTotal } = calculateCartTotal(cart.products);
     // get email from payment data, see if email is linked with previous customer
     const previousCustomer = await stripe.customers.list({
-      email: paymentData.data,
+      email: paymentData.email,
       limit: 1,
     });
     const isExistingCustomer = previousCustomer.data.length > 0;
@@ -42,7 +42,7 @@ export default async (req, res) => {
     // charge, send receipt email
     const charge = await stripe.charges.create(
       {
-        currency: 'GBP',
+        currency: 'gbp',
         amount: stripeTotal,
         receipt_email: paymentData.email,
         customer,

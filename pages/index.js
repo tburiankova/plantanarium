@@ -4,7 +4,6 @@ import LayoutIndex from '../components/_App/LayoutIndex';
 function Home() {
   return (
     <>
-      {/* <div className="index__background"> */}
       <div className="index__container">
         <div className="index__container--inner">
           <div className="index__topbar">
@@ -53,11 +52,14 @@ function Home() {
           </div>
         </div>
       </div>
-      {/* </div> */}
     </>
   );
 }
 
 Home.Layout = LayoutIndex;
+
+// Home.getInitialProps = (ctx) => {
+//   console.log(ctx.query);
+// };
 
 export default Home;

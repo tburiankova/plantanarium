@@ -18,8 +18,9 @@ function Store({ products }) {
 }
 
 Store.getInitialProps = async () => {
-  // fetch data on server
   const url = `${baseUrl}/api/products`;
+
+  // fetch data on server
   const response = await axios.get(url);
   // return response data as an object
   return { products: response.data };
