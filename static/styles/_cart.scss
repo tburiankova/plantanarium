@@ -11,7 +11,7 @@
     min-height: 20rem;
     margin: 0 auto;
     background-color: $whiteTransparent;
-    border-radius: 27px;
+    border-radius: $radius;
     box-shadow: $boxShadowDark;
     &--inner {
       width: 95%;
@@ -24,5 +24,19 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+  }
+  &__message {
+    width: 80%;
+    padding: 2.4rem 3.2rem;
+    background-color: $whiteTransparent;
+    margin: 0 auto 3.2rem auto;
+    border-radius: $radius;
+    box-shadow: $boxShadowLight;
+    &--success {
+      p {
+        text-align: center;
+        color: $green;
+      }
+    }
   }
 }

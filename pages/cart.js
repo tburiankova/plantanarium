@@ -5,23 +5,29 @@ import baseUrl from '../utils/baseUrl';
 import { useRouter } from 'next/router';
 import calculateCartTotal from '../utils/calculateCartTotal';
 import cookie from 'js-cookie';
+import StripeCheckout from 'react-stripe-checkout';
+import catchErrors from '../utils/catchErrors';
 
 // components
 import CartItem from '../components/Cart/CartItem';
+import Loading from '../components/_App/Loading';
 
 function Cart({ products, user }) {
   const [cartProducts, setCartProducts] = useState(products);
-  const [isCarEmpty, setCartEmpty] = useState(false);
+  const [isCartEmpty, setCartEmpty] = useState(false);
   const [cartAmount, setCartAmount] = useState(0);
   const [stripeAmount, setStripeAmount] = useState(0);
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+  // setSuccess(true);
   const router = useRouter();
 
   useEffect(() => {
-    const { cartTotal, stripeTotal } = calculateCartTotal(products);
+    const { cartTotal, stripeTotal } = calculateCartTotal(cartProducts);
     setCartAmount(cartTotal);
     setStripeAmount(stripeTotal);
-    setCartEmpty(products.length === 0);
-  }, [products]);
+    setCartEmpty(cartProducts.length === 0);
+  }, [cartProducts]);
 
   async function handleRemoveFromCart(productId) {
     const url = `${baseUrl}/api/cart`;
@@ -34,13 +40,29 @@ function Cart({ products, user }) {
     setCartProducts(response.data);
   }
 
+  async function handleCheckout(paymentData) {
+    try {
+      setLoading(true);
+      const url = `${baseUrl}/api/checkout`;
+      const token = cookie.get('token');
+      const payload = { paymentData };
+      const headers = { headers: { Authorization: token } };
+      await axios.post(url, payload, headers);
+      setSuccess(true);
+    } catch (error) {
+      catchErrors(error, window.alert);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <>
       <div className="cart__heading">
         <h1>Your cart</h1>
         {user ? (
           <>
-            {products.length === 0 ? (
+            {cartProducts.length === 0 ? (
               <h2>No plants in your cart yet. Why don't you add some?</h2>
             ) : (
               <h2>Shop some more!</h2>
@@ -60,6 +82,11 @@ function Cart({ products, user }) {
       </div>
       <div className="cart__container">
         <div className="cart__container--inner">
+          {success && (
+            <div className="cart__message--success cart__message">
+              <p>Success! Your order and payment has been accepted.</p>
+            </div>
+          )}
           {cartProducts.map((product) => (
             <CartItem
               key={product.product._id}
@@ -69,9 +96,25 @@ function Cart({ products, user }) {
           ))}
           <div className="cart__summary">
             <p>Total: £ {cartAmount}</p>
-            <button className="btn-submit" disabled={isCarEmpty}>
-              Checkout
-            </button>
+            {loading && <Loading />}
+            <StripeCheckout
+              name="Plantanarium"
+              amount={stripeAmount}
+              image={
+                cartProducts.length > 0 ? cartProducts[0].product.mediaUrl : ''
+              }
+              currency="GBP"
+              shippingAddress={true}
+              billingAddress={true}
+              zipCode={true}
+              stripeKey="pk_test_51Gx9zvGWvCLLv0rSXQBfyNQ0q7FYJhws8nvas2JP9U1zlD8TwEsEziLPUFsM53vpIzNsdJFLKa2m9FTnXlKXRoUi00YhK6zboE"
+              token={handleCheckout}
+              triggerEvent="onClick"
+            >
+              <button className="btn-submit" disabled={isCartEmpty || success}>
+                Checkout
+              </button>
+            </StripeCheckout>
           </div>
         </div>
       </div>

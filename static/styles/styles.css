@@ -568,6 +568,21 @@ button:disabled {
           align-items: flex-start;
 }
 
+.cart__message {
+  width: 80%;
+  padding: 2.4rem 3.2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 0 auto 3.2rem auto;
+  border-radius: 27px;
+  -webkit-box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+          box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+}
+
+.cart__message--success p {
+  text-align: center;
+  color: #aacc00;
+}
+
 .product__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
