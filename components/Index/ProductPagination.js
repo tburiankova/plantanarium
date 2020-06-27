@@ -19,10 +19,10 @@ function ProductPagination({ totalPages, currentPage }) {
   return (
     <>
       <div className="pagination__wrapper">
-        <button className="btn-cancel" onClick={goToPrev} disabled={firstPage}>
+        <button onClick={goToPrev} disabled={firstPage}>
           Previous
         </button>
-        <button className="btn-cancel" onClick={goToNext} disabled={lastPage}>
+        <button onClick={goToNext} disabled={lastPage}>
           Next
         </button>
       </div>

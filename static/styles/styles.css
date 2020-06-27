@@ -20,6 +20,11 @@ html {
   }
 }
 
+.no-focus-outline a:focus,
+.no-focus-outline button:focus {
+  outline: none;
+}
+
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -67,6 +72,13 @@ span {
   span {
     font-size: 1.9rem;
   }
+}
+
+span {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
 }
 
 button {
@@ -530,6 +542,48 @@ button:disabled {
   }
 }
 
+.account__wrapper {
+  width: 70%;
+  min-height: 20vh;
+  margin: 0 auto;
+  padding: 3.2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 27px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.account__heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 3.2rem;
+}
+
+.account__heading h1 {
+  text-align: center;
+  font-size: 4rem;
+}
+
+.account__name {
+  text-transform: capitalize;
+}
+
 .cart__heading {
   margin-bottom: 3.2rem;
 }
@@ -566,6 +620,15 @@ button:disabled {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+@media only screen and (max-width: 25em) {
+  .cart__summary {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .cart__message {
@@ -812,6 +875,55 @@ button:disabled {
   margin-top: 3.2rem;
 }
 
+.accordion__label {
+  padding: 0.8rem 1.2rem;
+  border-radius: 27px;
+  background-color: #1dc8c4;
+  display: inline-block;
+  color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.accordion__inner {
+  padding: 1.6rem 0;
+}
+
+.accordion__product__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.6rem;
+}
+
+.accordion__product__wrapper:not(:last-child) {
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.accordion__product__img {
+  width: 10rem;
+  height: 12rem;
+  min-height: 12rem;
+  background-color: #6f6f6f;
+  margin-right: 2.4rem;
+  overflow: hidden;
+}
+
+.accordion__product__img img {
+  min-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.accordion__product__info p {
+  font-size: 1.6rem;
+  color: #6f6f6f;
+}
+
 .cart__item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -821,12 +933,33 @@ button:disabled {
   border-bottom: 1px solid #e5e5e5;
 }
 
+@media only screen and (max-width: 34.375em) {
+  .cart__item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .cart__item__img {
   width: 10rem;
   height: 13rem;
   background-color: #6f6f6f;
   margin-right: 1.6rem;
   overflow: hidden;
+}
+
+@media only screen and (max-width: 34.375em) {
+  .cart__item__img {
+    width: 18rem;
+    height: 23rem;
+    margin-bottom: 1.6rem;
+    margin-right: 0;
+  }
 }
 
 .cart__item__img img {
@@ -847,6 +980,12 @@ button:disabled {
 
 .cart__item__remove {
   margin-left: auto;
+}
+
+@media only screen and (max-width: 34.375em) {
+  .cart__item__remove {
+    margin-left: 0;
+  }
 }
 
 .topbar {
@@ -902,29 +1041,46 @@ button:disabled {
 }
 
 @media only screen and (max-width: 25em) {
-  .topbar ul li {
+  .topbar ul li,
+  .topbar ul button {
     margin-top: 1.6rem;
   }
 }
 
-.topbar ul li:not(:first-child) {
+.topbar ul li:not(:first-child),
+.topbar ul button:not(:first-child) {
   margin-left: 3.2rem;
 }
 
 @media only screen and (max-width: 25em) {
-  .topbar ul li:not(:first-child) {
+  .topbar ul li:not(:first-child),
+  .topbar ul button:not(:first-child) {
     margin-left: 0;
   }
 }
 
-.topbar ul li a {
+.topbar ul li a,
+.topbar ul li button.nav-logout,
+.topbar ul button a,
+.topbar ul button button.nav-logout {
   color: #1d1c28;
   -webkit-transition: all 0.1s cubic-bezier(0.47, 0, 0.745, 0.715);
   transition: all 0.1s cubic-bezier(0.47, 0, 0.745, 0.715);
 }
 
-.topbar ul li a:hover {
+.topbar ul li a:hover,
+.topbar ul li button.nav-logout:hover,
+.topbar ul button a:hover,
+.topbar ul button button.nav-logout:hover {
   color: #f73365;
+}
+
+.topbar ul button.nav-logout {
+  background-color: transparent;
+  font-size: 2rem;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  color: #1d1c28;
 }
 
 .loading__wrapper {
@@ -1036,13 +1192,22 @@ button:disabled {
 }
 
 .pagination__wrapper {
-  width: 20rem;
-  margin: 0 auto;
-  padding: 2.4rem 3.2rem;
-  background-color: rgba(255, 255, 255, 0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pagination__wrapper button {
+  padding: 0.8rem 1.2rem;
+  margin-right: 1.6rem;
+  font-size: 1.5rem;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #6f6f6f;
   border-radius: 27px;
-  -webkit-box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
-          box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+  background-color: #e5e5e5;
 }
 
 .store__container {
@@ -1101,7 +1266,8 @@ button:disabled {
 
 @media only screen and (max-width: 25em) {
   .store__card {
-    width: 27rem;
+    width: 23rem;
+    min-height: 40rem;
   }
 }
 
@@ -1120,7 +1286,8 @@ button:disabled {
 
 @media only screen and (max-width: 25em) {
   .store__card__img-wrapper {
-    width: 20rem;
+    width: 18rem;
+    height: 28rem;
   }
 }
 
@@ -1129,8 +1296,8 @@ button:disabled {
   min-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center center;
-     object-position: center center;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .store__card h2 {

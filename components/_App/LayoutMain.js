@@ -1,7 +1,21 @@
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Navbar from './Navbar';
 
 function Layout({ children, user }) {
+  // enable outline on links and buttons when using the tab key (accessibility)
+  const [focus, setFocus] = useState(false);
+
+  useEffect(() => {
+    function handleFocus(e) {
+      if (e.keyCode === 9) {
+        setFocus(true);
+      }
+    }
+    window.addEventListener('keyup', handleFocus);
+    return () => window.removeEventListener('keyup', handleFocus);
+  }, []);
+
   return (
     <>
       <Head>
@@ -19,7 +33,7 @@ function Layout({ children, user }) {
         <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
         <title>Plantanarium</title>
       </Head>
-      <div className="container">
+      <div className={`container ${!focus ? 'no-focus-outline' : ''}`}>
         <div className="container--inner">
           <Navbar user={user} />
           {children}

@@ -24,6 +24,9 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    @media only screen and (max-width: $bp400) {
+      flex-direction: column;
+    }
   }
   &__message {
     width: 80%;

@@ -60,8 +60,10 @@ function Navbar({ user }) {
                   </a>
                 </Link>
               </li>
-              <li onClick={handleLogout} style={{ cursor: 'pointer' }}>
-                Log Out
+              <li>
+                <button className="nav-logout" onClick={handleLogout}>
+                  Log Out
+                </button>
               </li>
             </>
           ) : (

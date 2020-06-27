@@ -1,6 +1,20 @@
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 
 function LayoutIndex({ children }) {
+  // enable outline on links and buttons when using the tab key (accessibility)
+  const [focus, setFocus] = useState(false);
+
+  useEffect(() => {
+    function handleFocus(e) {
+      if (e.keyCode === 9) {
+        setFocus(true);
+      }
+    }
+    document.body.addEventListener('keyup', handleFocus);
+    return () => document.body.removeEventListener('keyup', handleFocus);
+  }, []);
+
   return (
     <>
       <Head>
@@ -18,7 +32,7 @@ function LayoutIndex({ children }) {
         <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
         <title>Plantanarium</title>
       </Head>
-      {children}
+      <div className={`${!focus ? 'no-focus-outline' : ''}`}>{children}</div>
     </>
   );
 }

@@ -1,9 +1,28 @@
 .account {
   &__wrapper {
-    width: 100%;
+    width: 70%;
     min-height: 20vh;
+    margin: 0 auto;
+    padding: 3.2rem;
     background-color: $whiteTransparent;
-    padding: 2.4rem 3.2rem;
     border-radius: $radius;
+    display: flex;
+    flex-direction: column;
+  }
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3.2rem;
+    h1 {
+      text-align: center;
+      font-size: 4rem;
+    }
+  }
+  &__name {
+    text-transform: capitalize;
+  }
+  &__orders {
   }
 }

@@ -15,15 +15,10 @@ html {
   @media only screen and (min-width: $bp1800) {
     font-size: 75%;
   }
-  //   @media only screen and (max-width: $bpLg3) {
-  //     font-size: 56.25%;
-  //   }
-  //   @media only screen and (max-width: $bpMd2) {
-  //     font-size: 50%;
-  //   }
-  //   @media only screen and (max-width: $bpSm1) {
-  //     font-size: 43.75%;
-  //   }
+}
+.no-focus-outline a:focus,
+.no-focus-outline button:focus {
+  outline: none;
 }
 
 body {
@@ -67,6 +62,13 @@ span {
   @media only screen and (max-width: $bp550) {
     font-size: 1.9rem;
   }
+}
+
+span {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
 }
 
 button {

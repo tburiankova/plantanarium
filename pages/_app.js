@@ -58,7 +58,6 @@ class MyApp extends App {
 
   syncLogout = (e) => {
     if (e.key === 'logout') {
-      console.log('Logged out from storage.');
       Router.push('/login');
     }
   };
