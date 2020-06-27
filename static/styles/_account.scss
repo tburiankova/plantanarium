@@ -1,0 +1,9 @@
+.account {
+  &__wrapper {
+    width: 100%;
+    min-height: 20vh;
+    background-color: $whiteTransparent;
+    padding: 2.4rem 3.2rem;
+    border-radius: $radius;
+  }
+}

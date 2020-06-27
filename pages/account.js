@@ -1,5 +1,9 @@
 function Account() {
-  return <>account</>;
+  return (
+    <>
+      <div className="account__wrapper"></div>
+    </>
+  );
 }
 
 export default Account;
