@@ -5,36 +5,81 @@
     border-radius: $radius;
     padding: 1.6rem 0.8rem;
     color: $black;
-
-    td {
-      display: block;
-      word-wrap: break-word;
-      max-width: 7em;
-      &:first-child {
-        display: table-cell;
-        text-align: center;
-      }
+    font-size: 1.4rem;
+    font-family: $fontP;
+    width: 100%;
+    @media only screen and (max-width: $bp1150) {
+      border-collapse: separate;
+      border-spacing: 0.8rem;
     }
 
-    th {
-      &:nth-child(2) {
-        span {
-          display: block;
-        }
-        &:after {
-          display: none;
-        }
-      }
+    tr {
+      border-bottom: 1px solid $lightGrey;
     }
 
     th,
     td {
       text-align: left;
-      display: table-cell; // show the table as a normal table for tablet and desktop
-      padding: 1em;
+      padding: 1rem;
+      @media only screen and (max-width: $bp1150) {
+        padding: 0.2rem;
+      }
+      @media only screen and (max-width: $bp400) {
+        max-width: 10rem;
+      }
+    }
+
+    td {
+      display: table-cell;
+
+      @media only screen and (max-width: $bp1150) {
+        display: block;
+        word-wrap: break-word;
+      }
+
+      &:first-child {
+        @media only screen and (max-width: $bp1150) {
+          display: table-cell;
+          text-align: center;
+        }
+      }
+
+      &:nth-child(6) {
+        width: 8rem;
+      }
+    }
+
+    th {
+      @media only screen and (max-width: $bp1150) {
+        display: none;
+      }
+      &:nth-child(2) {
+        @media only screen and (max-width: $bp1150) {
+          display: table-cell;
+        }
+        span {
+          display: block;
+          @media only screen and (max-width: $bp1150) {
+            display: none;
+          }
+        }
+        &:after {
+          display: none;
+          @media only screen and (max-width: $bp1150) {
+            display: table-cell;
+            content: attr(data-th);
+          }
+        }
+      }
+      &:first-child {
+        @media only screen and (max-width: $bp1150) {
+          display: table-cell;
+        }
+      }
     }
   }
 }
+
 // .account {
 //   &__permissions {
 //     background-color: $whiteTransparent;

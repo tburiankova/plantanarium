@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import cookie from 'js-cookie';
+
+// utility functions
 import baseUrl from '../../utils/baseUrl';
 import formatDate from '../../utils/formatDate';
 

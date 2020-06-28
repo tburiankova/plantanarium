@@ -8,6 +8,9 @@
     border-radius: $radius;
     display: flex;
     flex-direction: column;
+    @media only screen and (max-width: $bp750) {
+      width: 100%;
+    }
   }
   &__heading {
     display: flex;
@@ -15,6 +18,9 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 3.2rem;
+    padding-bottom: 3.2rem;
+    border-bottom: 1px solid $lightGrey;
+    text-align: center;
     h1 {
       text-align: center;
       font-size: 4rem;
@@ -24,5 +30,12 @@
     text-transform: capitalize;
   }
   &__orders {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3.2rem;
+    padding-bottom: 3.2rem;
+    border-bottom: 1px solid $lightGrey;
+    text-align: center;
   }
 }

@@ -13,7 +13,7 @@ function Accordion({ order }) {
         {open && (
           <>
             <div className="accordion__inner">
-              <h2>Total: £ {order.total.toFixed(2)}</h2>
+              <h3>Total: £ {order.total.toFixed(2)}</h3>
               {order.products.map((product) => (
                 <ProductInfo
                   key={product._id}
@@ -37,7 +37,7 @@ function ProductInfo({ product }) {
           <img src={product.product.mediaUrl} alt={product.product.name} />
         </div>
         <div className="accordion__product__info">
-          <h2>{product.product.name}</h2>
+          <h3>{product.product.name}</h3>
           <p>
             {product.quantity}x £ {product.product.price.toFixed(2)}
           </p>

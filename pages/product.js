@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import baseUrl from '../utils/baseUrl';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 import cookie from 'js-cookie';
+
+// utility functions
+import baseUrl from '../utils/baseUrl';
 import catchErrors from '../utils/catchErrors';
 
 // components
@@ -35,7 +37,7 @@ function Product({ product, user }) {
     }
   }, [success]);
 
-  async function handleDelete({ user }) {
+  async function handleDelete() {
     const url = `${baseUrl}/api/product`;
     const payload = { params: { _id } };
     await axios.delete(url, payload);
@@ -61,11 +63,13 @@ function Product({ product, user }) {
   return (
     <>
       <div className="product__wrapper">
-        <div className="product__wrapper--left">
+        <div className="product__wrapper--top">
           <div className="product__heading">
             <h1>{product.name}</h1>
             <p>£ {product.price.toFixed(2)}</p>
           </div>
+        </div>
+        <div className="product__wrapper--left">
           <div className="product__img-wrapper">
             <img src={`${product.mediaUrl}`} alt={product.name} />
           </div>

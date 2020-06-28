@@ -1,18 +1,4 @@
 .index {
-  &__background {
-    width: 100vw;
-    height: 100vh;
-    min-height: 100vh;
-    background-image: url('../images/monsteraBg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 0;
-    position: fixed;
-    @media only screen and (max-width: $bp850) {
-      height: auto;
-      position: relative;
-    }
-  }
   &__container {
     width: 90vw;
     min-height: 85vh;

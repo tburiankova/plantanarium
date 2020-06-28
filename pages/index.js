@@ -58,8 +58,4 @@ function Home() {
 
 Home.Layout = LayoutIndex;
 
-// Home.getInitialProps = (ctx) => {
-//   console.log(ctx.query);
-// };
-
 export default Home;

@@ -17,15 +17,21 @@ function Account({ user, orders }) {
           </h1>
           <h2>Your account details:</h2>
           <p>{user.email}</p>
-          <p>{formatDate(user.createdAt)}</p>
+          <p>Registered on {formatDate(user.createdAt)}</p>
         </div>
         <div className="account__orders">
-          <h2>You order history</h2>
-          {orders.length === 0 && <p>You haven't ordered anything yet!</p>}
+          <h2>Your order history</h2>
+          {orders.length === 0 && (
+            <>
+              <p>You haven't ordered anything yet!</p>
+              <button className="btn-main">Shop now</button>
+            </>
+          )}
           {orders.map((order) => (
             <Accordion key={order._id} order={order} />
           ))}
         </div>
+        <h2>User permissions</h2>
         {user.role === 'root' && <UserPermissions />}
       </div>
     </>

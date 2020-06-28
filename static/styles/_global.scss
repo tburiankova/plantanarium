@@ -26,6 +26,7 @@ body {
   background-image: url('../images/monsteraBg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   min-height: 100vh;
 }
 
@@ -42,15 +43,27 @@ h4 {
 h1 {
   font-size: 6.2rem;
   font-weight: 600;
-  margin-bottom: 3.2rem;
+  margin-bottom: 1.6rem;
+  @media only screen and (max-width: $bp750) {
+    font-size: 4.8rem;
+  }
 }
 
 h2 {
+  font-size: 3.2rem;
   margin-bottom: 1.6rem;
+}
+h3 {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
 }
 
 ul {
   list-style: none;
+}
+
+p {
+  margin-bottom: 0.8rem;
 }
 
 p,
@@ -87,7 +100,7 @@ button {
   background-color: $pink;
   font-size: 2rem;
   color: $white;
-  border-radius: 27px;
+  border-radius: $radius;
   transition: all 0.2s cubic-bezier(0.47, 0, 0.745, 0.715);
   &:hover {
     background-color: $pinkHover;
@@ -108,7 +121,7 @@ button {
   font-size: 2rem;
   color: $pink;
   border: 2px solid $pink;
-  border-radius: 27px;
+  border-radius: $radius;
   transition: $transition;
 
   &:hover {
@@ -127,7 +140,7 @@ button {
 .btn-submit {
   padding: 0.9rem 2.8rem;
   color: $white;
-  border-radius: 27px;
+  border-radius: $radius;
   font-size: 1.6rem;
   margin: 0.8rem;
 }
@@ -180,7 +193,7 @@ button {
   padding: 2rem 3rem;
   background-color: $whiteTransparent;
   box-shadow: $boxShadowLight;
-  border-radius: 27px;
+  border-radius: $radius;
 
   @media only screen and (max-width: $bp1000) {
     width: 70%;
@@ -195,7 +208,7 @@ button {
   input,
   textarea {
     padding: 0.8rem 1.2rem;
-    border-radius: 27px;
+    border-radius: $radius;
     border: none;
     box-shadow: $boxShadowDark;
     font-family: $fontP;
@@ -226,7 +239,7 @@ button {
     padding: 0.8rem;
     box-shadow: $boxShadowDark;
     background-color: $white;
-    border-radius: 27px;
+    border-radius: $radius;
     color: $mediumGrey;
     font-size: 1.4rem;
     margin-top: 0;
@@ -241,7 +254,8 @@ button {
 
   button {
     margin-top: 1.6rem;
-    width: 12rem;
+    display: inline-block;
+    max-width: 20rem;
   }
 
   .img-prev {
@@ -256,7 +270,7 @@ button {
     background-color: $white;
     box-shadow: $boxShadowDark;
     text-align: center;
-    border-radius: 27px;
+    border-radius: $radius;
   }
   .form-message-success {
     p {
