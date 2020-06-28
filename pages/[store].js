@@ -26,10 +26,9 @@ function Store({ products, totalPages }) {
 }
 
 Store.getInitialProps = async (ctx) => {
-  // console.log(ctx.query);
   // implement pagination
   const page = ctx.query.page ? ctx.query.page : '1';
-  const size = 2;
+  const size = 6;
   const url = `${baseUrl}/api/products`;
   const payload = { params: { page, size } };
   const response = await axios.get(url, payload);

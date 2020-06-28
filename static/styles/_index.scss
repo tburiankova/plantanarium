@@ -14,8 +14,8 @@
     }
   }
   &__container {
-    width: 90%;
-    height: 85%;
+    width: 90vw;
+    min-height: 85vh;
     background-color: white;
     z-index: 1;
     margin: 7.5vh auto 0 auto;
@@ -23,7 +23,7 @@
     position: relative;
     padding-bottom: 8rem;
 
-    @media only screen and (max-width: $bp850) {
+    @media only screen and (max-width: $bp1000) {
       min-height: 100vh;
       height: auto;
       margin: 0 auto;

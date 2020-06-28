@@ -1,17 +1,26 @@
 .product {
   &__wrapper {
+    width: 80%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 8rem;
+    @media only screen and (max-width: $bp1150) {
+      width: 100%;
+    }
     @media only screen and (max-width: $bp750) {
       flex-direction: column;
+    }
+    @media only screen and (min-width: $bp1300) {
+      width: 70%;
+      margin: 0 auto;
     }
     &--left {
       width: 55%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+
       @media only screen and (max-width: $bp1000) {
         align-items: flex-start;
       }
@@ -20,10 +29,11 @@
       }
     }
     &--right {
-      width: 40%;
+      width: 44%;
       @media only screen and (max-width: $bp750) {
         width: 100%;
       }
+
       p {
         margin-bottom: 3.2rem;
         font-weight: 400;
@@ -53,14 +63,14 @@
   }
   &__heading {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
     @media only screen and (max-width: $bp400) {
       flex-direction: column;
       align-items: flex-start;
     }
     h1 {
-      width: 60%;
+      // width: 60%;
       @media only screen and (max-width: $bp1000) {
         font-size: 4.8rem;
       }
@@ -68,24 +78,23 @@
         width: 100%;
       }
     }
-    span {
-      display: inline-block;
-      width: 30%;
+    p {
+      font-family: $fontH;
+      font-weight: 400;
       color: $grey;
       font-size: 4rem;
+      margin-top: -3.6rem;
       @media only screen and (max-width: $bp400) {
-        margin-top: -1.6rem;
         margin-bottom: 1.6rem;
         font-size: 3.2rem;
       }
     }
   }
   &__img-wrapper {
-    width: 70%;
+    width: 90%;
     height: 45rem;
     background-color: transparent;
     @media only screen and (max-width: $bp750) {
-      width: 40%;
       height: 32rem;
       margin-bottom: 3.2rem;
     }
@@ -93,7 +102,7 @@
       width: 70%;
     }
     @media only screen and (max-width: $bp400) {
-      width: 100%;
+      width: 90%;
     }
     img {
       max-width: 100%;

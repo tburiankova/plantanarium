@@ -1,20 +1,20 @@
 import { useState } from 'react';
+import formatDate from '../../utils/formatDate';
 
 function Accordion({ order }) {
   const [open, setOpen] = useState(false);
-  //   console.log(order);
   return (
     <>
       <div className="accordion__wrapper">
         <button className="accordion__label" onClick={() => setOpen(!open)}>
-          {order.createdAt}
+          {formatDate(order.createdAt)}
         </button>
 
         {open && (
           <>
             <div className="accordion__inner">
               <h2>Total: £ {order.total.toFixed(2)}</h2>
-              {order.products.map((product, i) => (
+              {order.products.map((product) => (
                 <ProductInfo
                   key={product._id}
                   order={order}
@@ -29,8 +29,7 @@ function Accordion({ order }) {
   );
 }
 
-function ProductInfo({ order, product }) {
-  console.log(product);
+function ProductInfo({ product }) {
   return (
     <>
       <div className="accordion__product__wrapper">

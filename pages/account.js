@@ -1,9 +1,11 @@
 import { parseCookies } from 'nookies';
 import axios from 'axios';
 import baseUrl from '../utils/baseUrl';
+import formatDate from '../utils/formatDate';
 
 // components
 import Accordion from '../components/Account/Accordion';
+import UserPermissions from '../components/Account/UserPermissions';
 
 function Account({ user, orders }) {
   return (
@@ -15,7 +17,7 @@ function Account({ user, orders }) {
           </h1>
           <h2>Your account details:</h2>
           <p>{user.email}</p>
-          <p>{user.createdAt}</p>
+          <p>{formatDate(user.createdAt)}</p>
         </div>
         <div className="account__orders">
           <h2>You order history</h2>
@@ -24,6 +26,7 @@ function Account({ user, orders }) {
             <Accordion key={order._id} order={order} />
           ))}
         </div>
+        {user.role === 'root' && <UserPermissions />}
       </div>
     </>
   );
