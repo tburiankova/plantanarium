@@ -10,7 +10,6 @@
 }
 
 html {
-  // this defines how much 1 rem is for our default resolution
   font-size: 62.5%; // 1rem = 10px; 10/16 = 62.5%
   @media only screen and (min-width: $bp1800) {
     font-size: 75%;
@@ -190,7 +189,7 @@ button {
   color: $blue;
 }
 
-.active-link {
+.link-active {
   color: $pink !important;
 }
 
@@ -216,17 +215,18 @@ button {
 
   input,
   textarea {
-    padding: 0.8rem 1.2rem;
+    padding: 1.2rem 1.6rem;
     border-radius: $radius;
     border: none;
     box-shadow: $boxShadowDark;
     font-family: $fontP;
+    font-size: 1.6rem;
     &:focus {
       outline: none;
       border: 2px solid $lightGrey;
     }
     &::placeholder {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: $mediumGrey;
       font-family: $fontP;
     }

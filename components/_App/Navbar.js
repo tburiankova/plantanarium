@@ -37,7 +37,7 @@ function Navbar({ user }) {
           <li>
             <Link href="/store">
               <a
-                className={router.pathname === '/[store]' ? 'active-link' : ''}
+                className={router.pathname === '/[store]' ? 'link-active' : ''}
               >
                 Store
               </a>
@@ -45,7 +45,7 @@ function Navbar({ user }) {
           </li>
           <li>
             <Link href="/cart">
-              <a className={router.pathname === '/cart' ? 'active-link' : ''}>
+              <a className={router.pathname === '/cart' ? 'link-active' : ''}>
                 Cart
               </a>
             </Link>
@@ -55,7 +55,7 @@ function Navbar({ user }) {
             <li>
               <Link href="/create">
                 <a
-                  className={router.pathname === '/create' ? 'active-link' : ''}
+                  className={router.pathname === '/create' ? 'link-active' : ''}
                 >
                   Create
                 </a>
@@ -69,7 +69,7 @@ function Navbar({ user }) {
                 <Link href="/account">
                   <a
                     className={
-                      router.pathname === '/account' ? 'active-link' : ''
+                      router.pathname === '/account' ? 'link-active' : ''
                     }
                   >
                     Account
@@ -88,7 +88,7 @@ function Navbar({ user }) {
                 <Link href="/login">
                   <a
                     className={
-                      router.pathname === '/login' ? 'active-link' : ''
+                      router.pathname === '/login' ? 'link-active' : ''
                     }
                   >
                     Log In
