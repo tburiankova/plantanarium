@@ -1,0 +1,31 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__inner {
+    padding: 5rem;
+    background-color: $white;
+    border-radius: $radius;
+    box-shadow: $boxShadowLight;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @media only screen and (max-width: $bp400) {
+      padding: 3.2rem;
+    }
+  }
+  &__btns {
+    margin-top: 3.2rem;
+  }
+}

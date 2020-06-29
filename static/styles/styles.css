@@ -34,10 +34,15 @@ body {
   background-attachment: fixed;
 }
 
-@media only screen and (max-width: 62.5em) {
+@media only screen and (max-width: 64.0625em) {
+  body {
+    background-image: url("../images/monsteraBgTablet.jpg");
+  }
+}
+
+@media only screen and (max-width: 46.875em) {
   body {
     background-image: url("../images/monsteraBgMobile.jpg");
-    background-size: contain;
   }
 }
 
@@ -248,7 +253,7 @@ button:disabled {
   border-radius: 27px;
 }
 
-@media only screen and (max-width: 62.5em) {
+@media only screen and (max-width: 64.0625em) {
   .form-main {
     width: 70%;
   }
@@ -405,7 +410,7 @@ button:disabled {
   padding-bottom: 8rem;
 }
 
-@media only screen and (max-width: 62.5em) {
+@media only screen and (max-width: 64.0625em) {
   .index__container {
     min-height: 100vh;
     height: auto;
@@ -830,51 +835,9 @@ button:disabled {
      object-fit: cover;
 }
 
-.product__modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  z-index: 2;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.product__modal--inner {
-  padding: 5rem;
-  background-color: #ffffff;
-  border-radius: 27px;
-  -webkit-box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
-          box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
-  z-index: 3;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-}
-
-.product__modal__btns {
+.product__btn-back {
   margin-top: 3.2rem;
+  float: right;
 }
 
 .accordion__label {
@@ -989,6 +952,59 @@ button:disabled {
   .cart__item__remove {
     margin-left: 0;
   }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal__inner {
+  padding: 5rem;
+  background-color: #ffffff;
+  border-radius: 27px;
+  -webkit-box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+          box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+  z-index: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+@media only screen and (max-width: 25em) {
+  .modal__inner {
+    padding: 3.2rem;
+  }
+}
+
+.modal__btns {
+  margin-top: 3.2rem;
 }
 
 .topbar {

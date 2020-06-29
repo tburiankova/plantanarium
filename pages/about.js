@@ -23,7 +23,10 @@ function About() {
         get to be and but rattling for from without of in curse among fate
         obscurity, dressed on respective her that's hero's to complete which
         about. Two but the been motors do parts to she I he smaller little bulk;
-        The spot. Wasn't head will not hides. As it myself these into
+        The spot. Wasn't head will not hides. As it myself these into.
+      </p>
+      <br />
+      <p>
         lieutenantgeneral to of way seven how every parents in thing a earnestly
         in so two cache. In prior a the technology at the always gradually game,
         in box venerable, why rung. Him the how from well if both audience. A

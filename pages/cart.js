@@ -1,25 +1,29 @@
 import { useState, useEffect } from 'react';
 import { parseCookies } from 'nookies';
 import axios from 'axios';
-import baseUrl from '../utils/baseUrl';
 import { useRouter } from 'next/router';
-import calculateCartTotal from '../utils/calculateCartTotal';
 import cookie from 'js-cookie';
 import StripeCheckout from 'react-stripe-checkout';
+import { AnimatePresence } from 'framer-motion';
+
+// util functions
 import catchErrors from '../utils/catchErrors';
+import baseUrl from '../utils/baseUrl';
+import calculateCartTotal from '../utils/calculateCartTotal';
 
 // components
 import CartItem from '../components/Cart/CartItem';
 import Loading from '../components/_App/Loading';
+import Modal from '../components/_App/Modal';
 
 function Cart({ products, user }) {
   const [cartProducts, setCartProducts] = useState(products);
   const [isCartEmpty, setCartEmpty] = useState(false);
   const [cartAmount, setCartAmount] = useState(0);
   const [stripeAmount, setStripeAmount] = useState(0);
-  const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
-  // setSuccess(true);
+  const [success, setSuccess] = useState(false);
+  const [modalSuccess, setModalSuccess] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -49,6 +53,7 @@ function Cart({ products, user }) {
       const headers = { headers: { Authorization: token } };
       await axios.post(url, payload, headers);
       setSuccess(true);
+      setModalSuccess(true);
     } catch (error) {
       catchErrors(error, window.alert);
     } finally {
@@ -82,11 +87,22 @@ function Cart({ products, user }) {
       </div>
       <div className="cart__container">
         <div className="cart__container--inner">
-          {success && (
-            <div className="cart__message--success cart__message">
-              <p>Success! Your order and payment has been accepted.</p>
-            </div>
-          )}
+          <AnimatePresence exitBeforeEnter>
+            {modalSuccess && (
+              <Modal modal={modalSuccess}>
+                <p>Payment successful!</p>
+                <p>Thank you for your order!</p>
+                <div className="modal__btns">
+                  <button
+                    className="btn-cancel"
+                    onClick={() => setModalSuccess(!modalSuccess)}
+                  >
+                    Close
+                  </button>
+                </div>
+              </Modal>
+            )}
+          </AnimatePresence>
           {cartProducts.map((product) => (
             <CartItem
               key={product.product._id}

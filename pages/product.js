@@ -13,7 +13,7 @@ import Loading from '../components/_App/Loading';
 import Modal from '../components/_App/Modal';
 
 function Product({ product, user }) {
-  const [modal, setModal] = useState(false);
+  const [modalDel, setModalDel] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -105,21 +105,36 @@ function Product({ product, user }) {
               {user ? <>Add to cart</> : <>Sign Up</>}
             </button>
           </form>
+          <button
+            className="btn-cancel product__btn-back"
+            onClick={() => router.back()}
+          >
+            Go Back
+          </button>
         </div>
       </div>
 
       {isRootOrAdmin && (
-        <button className="btn-delete" onClick={() => setModal(true)}>
+        <button className="btn-delete" onClick={() => setModalDel(true)}>
           Delete Product
         </button>
       )}
       <AnimatePresence exitBeforeEnter>
-        {modal && (
-          <Modal
-            handleDelete={handleDelete}
-            modal={modal}
-            setModal={setModal}
-          />
+        {modalDel && (
+          <Modal modal={modalDel}>
+            <p>Are you sure you want to delete this product?</p>
+            <div className="modal__btns">
+              <button
+                className="btn-cancel"
+                onClick={() => setModalDel(!modalDel)}
+              >
+                Cancel
+              </button>
+              <button className="btn-delete" onClick={handleDelete}>
+                Delete
+              </button>
+            </div>
+          </Modal>
         )}
       </AnimatePresence>
     </>
