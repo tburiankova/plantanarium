@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
+import { motion } from 'framer-motion';
+
+// utils
+import { fadeInUp } from '../../utils/animations';
 
 // components
 import HeadContent from './HeadContent';
@@ -38,7 +42,14 @@ function Layout({ children, user }) {
       <div className={`container ${!focus ? 'no-focus-outline' : ''}`}>
         <div className="container--inner">
           <Navbar user={user} />
-          {children}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={fadeInUp}
+          >
+            {children}
+          </motion.div>
         </div>
       </div>
     </>

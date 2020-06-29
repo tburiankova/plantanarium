@@ -11,9 +11,9 @@ function Navbar({ user }) {
 
   const [toggleMenu, setToggleMenu] = useState(false);
 
-  Router.onRouteChangeStart = () => {
-    setToggleMenu(!toggleMenu);
-  };
+  // Router.onRouteChangeStart = () => {
+  //   setToggleMenu(!toggleMenu);
+  // };
 
   return (
     <>
@@ -33,7 +33,11 @@ function Navbar({ user }) {
             <span></span>
           </button>
         </div>
-        <ul style={{ display: `${toggleMenu ? 'flex' : ''}` }}>
+
+        <ul
+          onClick={() => setToggleMenu(!toggleMenu)}
+          style={{ display: `${toggleMenu ? 'flex' : ''}` }}
+        >
           <li>
             <Link href="/store">
               <a className={router.pathname === '/store' ? 'active-link' : ''}>

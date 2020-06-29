@@ -1,6 +1,9 @@
 import axios from 'axios';
 import baseUrl from '../utils/baseUrl';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
+
+import { fadeInUp, stagger } from '../utils/animations';
 
 // components
 import ProductCard from '../components/Index/ProductCard';
@@ -13,11 +16,13 @@ function Store({ products, totalPages }) {
   return (
     <>
       <h1>Our Greens</h1>
-      <div className="store__container">
+      <motion.div className="store__container" variants={stagger}>
         {products.map((product) => (
-          <ProductCard key={product._id} product={product} />
+          <motion.div variants={fadeInUp}>
+            <ProductCard key={product._id} product={product} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
       {totalPages > 1 && (
         <ProductPagination totalPages={totalPages} currentPage={currentPage} />
       )}

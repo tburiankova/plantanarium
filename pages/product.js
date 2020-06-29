@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import cookie from 'js-cookie';
+import { AnimatePresence } from 'framer-motion';
 
 // utility functions
 import baseUrl from '../utils/baseUrl';
@@ -9,6 +10,7 @@ import catchErrors from '../utils/catchErrors';
 
 // components
 import Loading from '../components/_App/Loading';
+import Modal from '../components/_App/Modal';
 
 function Product({ product, user }) {
   const [modal, setModal] = useState(false);
@@ -111,22 +113,15 @@ function Product({ product, user }) {
           Delete Product
         </button>
       )}
-
-      {modal && (
-        <div className="product__modal">
-          <div className="product__modal--inner">
-            <p>Are you sure you want to delete this product?</p>
-            <div className="product__modal__btns">
-              <button className="btn-cancel" onClick={() => setModal(false)}>
-                Cancel
-              </button>
-              <button className="btn-delete" onClick={handleDelete}>
-                Delete
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <AnimatePresence exitBeforeEnter>
+        {modal && (
+          <Modal
+            handleDelete={handleDelete}
+            modal={modal}
+            setModal={setModal}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }

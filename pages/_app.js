@@ -1,10 +1,15 @@
 import App from 'next/app';
-import LayoutMain from '../components/_App/LayoutMain';
 import { parseCookies, destroyCookie } from 'nookies';
-import { redirectUser } from '../utils/auth';
-import baseUrl from '../utils/baseUrl';
 import axios from 'axios';
 import Router from 'next/router';
+import { AnimatePresence } from 'framer-motion';
+
+// utility functions
+import baseUrl from '../utils/baseUrl';
+import { redirectUser } from '../utils/auth';
+
+// components
+import LayoutMain from '../components/_App/LayoutMain';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -63,13 +68,15 @@ class MyApp extends App {
   };
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, router } = this.props;
     const Layout = Component.Layout || LayoutMain;
 
     return (
-      <Layout {...pageProps}>
-        <Component {...pageProps} />
-      </Layout>
+      <AnimatePresence exitBeforeEnter>
+        <Layout {...pageProps} key={router.route}>
+          <Component {...pageProps} router={router} />
+        </Layout>
+      </AnimatePresence>
     );
   }
 }

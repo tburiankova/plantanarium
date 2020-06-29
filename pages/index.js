@@ -1,12 +1,24 @@
 import Link from 'next/link';
+import { AnimatePresence, motion } from 'framer-motion';
+
+// utils
+import { container, fadeIn, fadeInUpDelayed } from '../utils/animations';
+
+// components
 import LayoutIndex from '../components/_App/LayoutIndex';
 
 function Home() {
   return (
     <>
-      <div className="index__container">
-        <div className="index__container--inner">
-          <div className="index__topbar">
+      <motion.div
+        className="index__container"
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+      >
+        <motion.div className="index__container--inner" variants={fadeIn}>
+          <motion.div className="index__topbar" variants={fadeInUpDelayed}>
             <Link href="/">
               <a>
                 <div className="index__logo logo-main">
@@ -31,7 +43,7 @@ function Home() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </motion.div>
           <div className="index__cta">
             <h1>We Live Plants.</h1>
             <h2>And are here to help you get more green in your life.</h2>
@@ -50,8 +62,8 @@ function Home() {
           <div className="index__address">
             <p>46 Boroughbridge Road, Birmigham, B2 5GR</p>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </>
   );
 }

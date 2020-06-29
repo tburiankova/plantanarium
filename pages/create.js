@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
+// utility functions
 import baseUrl from '../utils/baseUrl';
 import catchErrors from '../utils/catchErrors';
 
