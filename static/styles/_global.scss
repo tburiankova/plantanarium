@@ -28,7 +28,7 @@ body {
   background-attachment: fixed;
 
   @media only screen and (max-width: $bp1000) {
-    background-image: url('../images/monsteraBgSm.jpg');
+    background-image: url('../images/monsteraBgMobile.jpg');
     background-size: contain;
   }
 }
