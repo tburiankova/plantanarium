@@ -20,13 +20,8 @@ export default () => (
       href="/static/favicon/favicon-16x16.png"
     />
     <link rel="manifest" href="/static/favicon/site.webmanifest" />
-    <link
-      rel="mask-icon"
-      href="/static/favicon/safari-pinned-tab.svg"
-      color="#0041df"
-    />
-    <meta name="msapplication-TileColor" content="#00df94" />
-    <meta name="theme-color" content="#00df94" />
+    <meta name="msapplication-TileColor" content="#FBFAF7" />
+    <meta name="theme-color" content="#FBFAF7" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charSet="utf-8" />
     <link
@@ -46,13 +41,7 @@ export default () => (
       sizes="16x16"
       href="/static/favicon/favicon-16x16.png"
     />
-    <link rel="manifest" href="/static/favicon/site.webmanifest" />
-    <link
-      rel="mask-icon"
-      href="/static/favicon/safari-pinned-tab.svg"
-      color="#0041df"
-    />
-    <meta name="msapplication-TileColor" content="#00df94" />
-    <meta name="theme-color" content="#00df94" />
+    <meta name="msapplication-TileColor" content="#FBFAF7" />
+    <meta name="theme-color" content="#FBFAF7" />
   </>
 );

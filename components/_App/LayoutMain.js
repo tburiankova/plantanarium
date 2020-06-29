@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
+
+// components
+import HeadContent from './HeadContent';
 import Navbar from './Navbar';
 
 function Layout({ children, user }) {
@@ -19,19 +22,18 @@ function Layout({ children, user }) {
   return (
     <>
       <Head>
-        {/* Fonts */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;800&family=Roboto:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        ></link>
+        <HeadContent />
         {/* Stylesheets */}
         <link
           rel="stylesheet"
           type="text/css"
           href="/static/styles/styles.css"
         />
-        <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
-        <title>Plantanarium</title>
+        <title>Plantanarium || Store</title>
+        <meta
+          name="description"
+          content="Shop for carefully selected pieces of home plants. We are here to help you turn your living space into a jungle, or just make your life a little bit greener."
+        ></meta>
       </Head>
       <div className={`container ${!focus ? 'no-focus-outline' : ''}`}>
         <div className="container--inner">

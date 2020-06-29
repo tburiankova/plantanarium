@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 
+// components
+import HeadContent from './HeadContent';
+
 function LayoutIndex({ children }) {
   // enable outline on links and buttons when using the tab key (accessibility)
   const [focus, setFocus] = useState(false);
@@ -18,19 +21,18 @@ function LayoutIndex({ children }) {
   return (
     <>
       <Head>
-        {/* Fonts */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;800&family=Roboto:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        ></link>
         {/* Stylesheets */}
         <link
           rel="stylesheet"
           type="text/css"
           href="/static/styles/styles.css"
         />
-        <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
-        <title>Plantanarium</title>
+        <HeadContent />
+        <title>Plantanarium || Get More Greens In Your Life</title>
+        <meta
+          name="description"
+          content="Welcome to Plantanarium, your number 1 online store for Insta-friendly home plants. Shop for carefully selected pieces of home plants. We are here to help you turn your living space into a jungle, or just make your life a little bit greener."
+        ></meta>
       </Head>
       <div className={`${!focus ? 'no-focus-outline' : ''}`}>{children}</div>
     </>
