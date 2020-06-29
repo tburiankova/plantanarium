@@ -16,7 +16,7 @@
   &__card {
     cursor: pointer;
     width: 30rem;
-    min-height: 45rem;
+    min-height: 47rem;
     background: linear-gradient(
         180deg,
         rgba(97, 192, 32, 0.12) 0%,
@@ -39,7 +39,7 @@
 
     @media only screen and (max-width: $bp400) {
       width: 23rem;
-      min-height: 40rem;
+      min-height: 42rem;
     }
     @media only screen and (max-width: $bp330) {
       width: 25rem;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { handleLogout } from '../../utils/auth';
 
 function Navbar({ user }) {
@@ -10,10 +10,6 @@ function Navbar({ user }) {
   const isRootOrAdmin = isRoot || isAdmin;
 
   const [toggleMenu, setToggleMenu] = useState(false);
-
-  // Router.onRouteChangeStart = () => {
-  //   setToggleMenu(!toggleMenu);
-  // };
 
   return (
     <>
@@ -40,7 +36,9 @@ function Navbar({ user }) {
         >
           <li>
             <Link href="/store">
-              <a className={router.pathname === '/store' ? 'active-link' : ''}>
+              <a
+                className={router.pathname === '/[store]' ? 'active-link' : ''}
+              >
                 Store
               </a>
             </Link>

@@ -32,7 +32,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  min-height: 100vh;
 }
 
 h1,
@@ -73,6 +72,7 @@ ul {
 
 p {
   margin-bottom: 0.8rem;
+  line-height: 162%;
 }
 
 p,
@@ -214,6 +214,10 @@ button:disabled {
 .container--inner {
   width: 90%;
   margin: 0 auto;
+}
+
+.link-basic {
+  color: #1dc8c4;
 }
 
 .active-link {
@@ -547,7 +551,7 @@ button:disabled {
   width: 70%;
   min-height: 20vh;
   margin: 0 auto;
-  padding: 3.2rem;
+  padding: 4.8rem 3.2rem;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 27px;
   display: -webkit-box;
@@ -617,7 +621,6 @@ button:disabled {
 
 .cart__heading h2 {
   font-size: 2.4rem;
-  margin-top: -2rem;
 }
 
 .cart__container {
@@ -1259,7 +1262,7 @@ button:disabled {
 .store__card {
   cursor: pointer;
   width: 30rem;
-  min-height: 45rem;
+  min-height: 47rem;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(97, 192, 32, 0.12)), to(rgba(255, 255, 255, 0))), #ffffff;
   background: linear-gradient(180deg, rgba(97, 192, 32, 0.12) 0%, rgba(255, 255, 255, 0) 100%), #ffffff;
   -webkit-box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.05);
@@ -1291,7 +1294,7 @@ button:disabled {
 @media only screen and (max-width: 25em) {
   .store__card {
     width: 23rem;
-    min-height: 40rem;
+    min-height: 42rem;
   }
 }
 

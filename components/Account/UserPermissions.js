@@ -23,6 +23,7 @@ function UserPermissions() {
 
   return (
     <>
+      <h2>User permissions</h2>
       <table className="account__permissions">
         <thead>
           <tr>

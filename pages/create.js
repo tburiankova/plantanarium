@@ -57,12 +57,10 @@ function CreateProduct() {
       setLoading(true);
       setError('');
       const imageUrl = await handleImageUpload();
-      console.log({ imageUrl });
       const url = `${baseUrl}/api/product`;
       const { name, price, description } = product;
       const payload = { name, price, description, imageUrl };
       const response = await axios.post(url, payload);
-      // console.log({ response });
       setProduct(INITIAL_PRODUCT);
       setSuccess(true);
     } catch (error) {

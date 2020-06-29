@@ -1,5 +1,8 @@
 import { parseCookies } from 'nookies';
 import axios from 'axios';
+import Link from 'next/link';
+
+// util functions
 import baseUrl from '../utils/baseUrl';
 import formatDate from '../utils/formatDate';
 
@@ -24,14 +27,15 @@ function Account({ user, orders }) {
           {orders.length === 0 && (
             <>
               <p>You haven't ordered anything yet!</p>
-              <button className="btn-main">Shop now</button>
+              <Link href="/store">
+                <button className="btn-main">Shop now</button>
+              </Link>
             </>
           )}
           {orders.map((order) => (
             <Accordion key={order._id} order={order} />
           ))}
         </div>
-        <h2>User permissions</h2>
         {user.role === 'root' && <UserPermissions />}
       </div>
     </>

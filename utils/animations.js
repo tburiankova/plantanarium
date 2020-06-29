@@ -48,6 +48,10 @@ export const container = {
     width: '90vw',
     transition: { delay: 0.5, duration: 0.3, ease: easing },
   },
+  exit: {
+    opacity: 0,
+    transition: { delay: 0.1, duration: 0.3, ease: easing },
+  },
 };
 
 export const fadeIn = {
@@ -55,6 +59,10 @@ export const fadeIn = {
   visible: {
     opacity: 1,
     transition: { delay: 0.8, duration: 1, ease: easing },
+  },
+  exit: {
+    opacity: 0,
+    transition: { delay: 0.1, duration: 0.1, ease: easing },
   },
 };
 

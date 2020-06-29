@@ -27,7 +27,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  min-height: 100vh;
 }
 
 h1,
@@ -64,6 +63,7 @@ ul {
 
 p {
   margin-bottom: 0.8rem;
+  line-height: 162%;
 }
 
 p,
@@ -179,6 +179,10 @@ button {
     width: 90%;
     margin: 0 auto;
   }
+}
+
+.link-basic {
+  color: $blue;
 }
 
 .active-link {
