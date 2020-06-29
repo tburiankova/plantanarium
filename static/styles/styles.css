@@ -34,6 +34,13 @@ body {
   background-attachment: fixed;
 }
 
+@media only screen and (max-width: 62.5em) {
+  body {
+    background-image: url("../images/monsteraBgSm.jpg");
+    background-size: contain;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -1293,7 +1300,7 @@ button:disabled {
 
 @media only screen and (max-width: 25em) {
   .store__card {
-    width: 23rem;
+    width: 26rem;
     min-height: 42rem;
   }
 }
