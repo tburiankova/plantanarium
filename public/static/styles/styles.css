@@ -954,6 +954,236 @@ button:disabled {
   }
 }
 
+.form-main,
+.form-order {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+          box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.2);
+  border-radius: 27px;
+}
+
+.form-main .StripeElement,
+.form-main input,
+.form-main textarea,
+.form-order .StripeElement,
+.form-order input,
+.form-order textarea {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1.2rem 1.6rem;
+  border-radius: 27px;
+  border: none;
+  -webkit-box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.35);
+          box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.35);
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.6rem;
+}
+
+.form-main .StripeElement:focus,
+.form-main input:focus,
+.form-main textarea:focus,
+.form-order .StripeElement:focus,
+.form-order input:focus,
+.form-order textarea:focus {
+  outline: none;
+  border: 2px solid #e5e5e5;
+}
+
+.form-main .StripeElement::-webkit-input-placeholder,
+.form-main input::-webkit-input-placeholder,
+.form-main textarea::-webkit-input-placeholder,
+.form-order .StripeElement::-webkit-input-placeholder,
+.form-order input::-webkit-input-placeholder,
+.form-order textarea::-webkit-input-placeholder {
+  font-size: 1.6rem;
+  color: #c8c5c5;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.form-main .StripeElement:-ms-input-placeholder,
+.form-main input:-ms-input-placeholder,
+.form-main textarea:-ms-input-placeholder,
+.form-order .StripeElement:-ms-input-placeholder,
+.form-order input:-ms-input-placeholder,
+.form-order textarea:-ms-input-placeholder {
+  font-size: 1.6rem;
+  color: #c8c5c5;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.form-main .StripeElement::-ms-input-placeholder,
+.form-main input::-ms-input-placeholder,
+.form-main textarea::-ms-input-placeholder,
+.form-order .StripeElement::-ms-input-placeholder,
+.form-order input::-ms-input-placeholder,
+.form-order textarea::-ms-input-placeholder {
+  font-size: 1.6rem;
+  color: #c8c5c5;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.form-main .StripeElement::placeholder,
+.form-main input::placeholder,
+.form-main textarea::placeholder,
+.form-order .StripeElement::placeholder,
+.form-order input::placeholder,
+.form-order textarea::placeholder {
+  font-size: 1.6rem;
+  color: #c8c5c5;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.form-main .StripeElement,
+.form-order .StripeElement {
+  color: #6f6f6f;
+  margin-bottom: 1.6rem;
+}
+
+.form-main textarea,
+.form-order textarea {
+  resize: none;
+}
+
+.form-main input#price,
+.form-order input#price {
+  width: 15rem;
+}
+
+.form-main input[type='file'],
+.form-order input[type='file'] {
+  display: none;
+}
+
+.form-main .custom-file-input,
+.form-order .custom-file-input {
+  cursor: pointer;
+  width: 15rem;
+  padding: 0.8rem;
+  -webkit-box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.35);
+          box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.35);
+  background-color: #ffffff;
+  border-radius: 27px;
+  color: #c8c5c5;
+  font-size: 1.4rem;
+  margin-top: 0;
+}
+
+.form-main label,
+.form-order label {
+  font-size: 1.6rem;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin-top: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.form-main button,
+.form-order button {
+  margin-top: 1.6rem;
+  display: inline-block;
+  max-width: 20rem;
+}
+
+.form-main .img-prev,
+.form-order .img-prev {
+  width: 10rem;
+}
+
+.form-main .img-prev img,
+.form-order .img-prev img {
+  width: 100%;
+}
+
+.form-main .form-message-success,
+.form-main .form-message-error,
+.form-order .form-message-success,
+.form-order .form-message-error {
+  padding: 2rem 3rem;
+  background-color: #ffffff;
+  -webkit-box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.35);
+          box-shadow: 3px 20px 40px rgba(223, 213, 213, 0.35);
+  text-align: center;
+  border-radius: 27px;
+}
+
+.form-main .form-message-success p,
+.form-order .form-message-success p {
+  color: #aacc00;
+}
+
+.form-main .form-message-error p,
+.form-order .form-message-error p {
+  color: #ff4800;
+}
+
+.form-main .form-message-bottom,
+.form-order .form-message-bottom {
+  padding: 2.4rem 0;
+}
+
+.form-main .form-message-bottom p,
+.form-order .form-message-bottom p {
+  font-size: 1.6rem;
+}
+
+.form-main .form-message-bottom a,
+.form-order .form-message-bottom a {
+  color: #1dc8c4;
+}
+
+@media only screen and (max-width: 25em) {
+  .form-main .form-message-bottom a,
+  .form-order .form-message-bottom a {
+    display: block;
+  }
+}
+
+.form-order {
+  margin-top: 3.2rem;
+  width: 70%;
+}
+
+@media only screen and (max-width: 71.875em) {
+  .form-order {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 53.125em) {
+  .form-order {
+    width: 100%;
+  }
+}
+
+.form-main {
+  width: 50%;
+}
+
+@media only screen and (max-width: 64.0625em) {
+  .form-main {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 46.875em) {
+  .form-main {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 34.375em) {
+  .form-main {
+    width: 100%;
+  }
+}
+
 .modal {
   position: fixed;
   top: 0;
