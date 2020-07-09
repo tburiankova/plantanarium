@@ -31,6 +31,7 @@ function CheckoutForm({ cartAmount, stripeAmount }) {
   const [billing, setBilling] = useState(INITIAL_BILLING);
   const [disabled, setDisabled] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [modal, setModal] = useState(false);
   const [message, setMessage] = useState('');
 
@@ -74,6 +75,7 @@ function CheckoutForm({ cartAmount, stripeAmount }) {
         const headers = { headers: { Authorization: token } };
         const response = await axios.post(url, payload, headers);
         setMessage(response.data);
+        setSuccess(true);
         setModal(true);
       } catch (error) {
         // error.response.data
@@ -101,7 +103,9 @@ function CheckoutForm({ cartAmount, stripeAmount }) {
                 className="btn-cancel"
                 onClick={() => {
                   setModal(!modal);
-                  Router.reload();
+                  if (success) {
+                    Router.reload();
+                  }
                 }}
               >
                 Close

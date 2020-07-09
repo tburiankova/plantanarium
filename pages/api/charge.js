@@ -59,7 +59,7 @@ export default async (req, res) => {
       .status(200)
       .send('We have received your order and payment! Thank you!');
   } catch (err) {
-    console.log(err.raw.message);
+    // console.log(err.raw.message);
     res.status(400).send(err.raw.message);
   }
 };
