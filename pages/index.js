@@ -1,9 +1,10 @@
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 // components
 import LayoutIndex from '../components/_App/LayoutIndex';
 
 function Home() {
+  const router = useRouter();
   return (
     <>
       <div className="index__cta">
@@ -14,12 +15,9 @@ function Home() {
           jungle. All our plants are carefully selected and absolutely
           Insta-friendly!
         </p>
-
-        <Link href="/store">
-          <a>
-            <button className="btn-main">Shop Now</button>
-          </a>
-        </Link>
+        <button className="btn-main" onClick={() => router.push('/store')}>
+          Shop Now
+        </button>
       </div>
       <div className="index__address">
         <p>46 Boroughbridge Road, Birmigham, B2 5GR</p>

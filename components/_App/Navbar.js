@@ -96,11 +96,12 @@ function Navbar({ user }) {
                 </Link>
               </li>
               <li>
-                <Link href="/signup">
-                  <a>
-                    <button className="btn-main">Sign Up</button>
-                  </a>
-                </Link>
+                <button
+                  className="btn-main"
+                  onClick={() => router.push('/signup')}
+                >
+                  Sign Up
+                </button>
               </li>
             </>
           )}

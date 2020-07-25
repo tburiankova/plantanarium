@@ -1,6 +1,6 @@
 import { parseCookies } from 'nookies';
 import axios from 'axios';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 // util functions
 import baseUrl from '../utils/baseUrl';
@@ -11,6 +11,7 @@ import Accordion from '../components/Account/Accordion';
 import UserPermissions from '../components/Account/UserPermissions';
 
 function Account({ user, orders }) {
+  const router = useRouter();
   return (
     <>
       <div className="account__wrapper">
@@ -27,9 +28,12 @@ function Account({ user, orders }) {
           {orders.length === 0 && (
             <>
               <p>You haven't ordered anything yet!</p>
-              <Link href="/store">
-                <button className="btn-main">Shop now</button>
-              </Link>
+              <button
+                className="btn-main"
+                onClick={() => router.push('/store')}
+              >
+                Shop now
+              </button>
             </>
           )}
           {orders.map((order) => (
